@@ -1,0 +1,117 @@
+{
+    "Goal": "kill_enemies",
+    "Objects": [
+        {
+            "Type": "soldier_pistol",
+            "Coordinates": [
+                5,
+                7
+            ]
+        },
+        {
+            "Type": "soldier_pistol",
+            "Coordinates": [
+                7,
+                7
+            ]
+        },
+        {
+            "Type": "soldier_pistol",
+            "Coordinates": [
+                7,
+                5
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                6,
+                5
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                6,
+                6
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                6,
+                7
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                5,
+                6
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                7,
+                6
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                5,
+                3
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                6,
+                3
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                7,
+                3
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                3,
+                5
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                3,
+                6
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                4,
+                10
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                9,
+                8
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                9,
+                9
+            ]
+        }
+    ]
+}

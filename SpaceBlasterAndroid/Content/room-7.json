@@ -1,0 +1,12 @@
+{
+    "Goal": "none",
+    "Objects": [
+        {
+            "Type": "currency",
+            "Coordinates": [
+                6,
+                6
+            ]
+        }
+    ]
+}

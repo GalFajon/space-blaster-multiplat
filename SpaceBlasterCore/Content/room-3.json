@@ -1,0 +1,145 @@
+{
+    "Goal": "kill_enemies",
+    "Objects": [
+        {
+            "Type": "soldier_machinegun",
+            "Coordinates": [
+                1,
+                1
+            ]
+        },
+        {
+            "Type": "soldier_machinegun",
+            "Coordinates": [
+                11,
+                11
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                4,
+                5
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                8,
+                6
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                5,
+                8
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                1,
+                7
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                1,
+                5
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                11,
+                5
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                11,
+                7
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                5,
+                1
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                7,
+                1
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                5,
+                11
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                7,
+                11
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                6,
+                8
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                2,
+                3
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                3,
+                3
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                3,
+                2
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                9,
+                9
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                10,
+                9
+            ]
+        },
+        {
+            "Type": "coverwall",
+            "Coordinates": [
+                9,
+                10
+            ]
+        }
+    ]
+}

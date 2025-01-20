@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6efba8a9-a407-4029-bdd0-651d22a87386</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SpaceBlasterCore</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\AI\AIHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Audio\AudioHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Audio\MusicManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Audio\SoundEffectsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Collision\CollisionHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Input\InputManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Physics\PhysicsEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\RandomNumber.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Scene\SceneHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Collectables\CollectableWeapon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Collectables\Currency.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Collectables\Health.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Enemy\Enemy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Enemy\EnemyBee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Enemy\EnemySoldierD.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Enemy\EnemyZombie.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Enemy\Pathfinding\IPathFollower.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Enemy\Pathfinding\Pathfinding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Enemy\Projectile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\FX\Explosion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\LevelGenerator\LevelGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\LevelGenerator\RoomLayouts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\LevelGenerator\Rooms\Room.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Player\Player.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Player\PlayerProjectile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Scenes\Level.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Scenes\LoadoutScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Scenes\SettingsScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Scenes\TitleScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\UI\Bar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\UI\CurrencyLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\UI\Marker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\UI\RetryLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\UI\WeaponLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Wall\BackgroundWall.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Wall\CoverWall.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Wall\Door.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Wall\EntranceDoor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Wall\Wall.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Weapon\Weapon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Win\Win.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\AnimatedSprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\AnimationPlayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\GameRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Sprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\UIRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Animatable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\ArtificialIntelligence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Camera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Collider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Physics.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Position.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\SceneObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Scene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Button.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Label.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SpaceBlaster.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\big-explosion.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\big-fragments.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\bullet-impacts.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\hit-sparks.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\hit-spatters.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\laser-flash.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\muzzle-flashes.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\small-explosion.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\small-fragments.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Effects\smoke.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\License.txt" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Obstacles and Objects\obstacles-and-objects.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Projectiles\bullets+plasma.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Projectiles\Grenade.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Projectiles\RPG-round.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\README.txt" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Robots\Centipede.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Robots\Hornet.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Robots\Robot animation info.txt" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Robots\Scarab.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Robots\Spider.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Robots\Wasp.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\Arcane Activations Thanks and Info.pdf" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\Activate Glyph Forcefield.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\Activate Plinth 03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\Arcane Beacon.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\Arcane Symbol Activate 01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\Arcane Wind Chime Gust.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\Glyph Activation Light 01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\Glyph Activation Warm Aura.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\Raise Stone Pillar Long.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\Rotate Stone 03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Arcane Activations Preview\AUDIO\UI Message Appear 01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\BUTTON_03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\BUTTON_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\BUTTON_12.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\BUTTON_STOP_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\CASSETTE_RATTLE_12.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\CASSETTE_RATTLE_20.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\EMF_TAPE_RECORDING_06.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\FAST_FORWARD_LOOP_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\LOAD_CASSETTE_08.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\LOOP_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\OPEN_CASE_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\REMOVE_CASSETTE_07.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\REWIND_FAST_FORWARD_09.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\SLOW DOWN SPEED UP_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\TAPE STOP_15.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\AUDIO\TAPE_NOISE_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Cassette Preview\Cassette Full Library.pdf" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\AUDIO\AMBIENCE_HEARTBEAT_LOOP.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\AUDIO\AMBIENCE_SIGNAL_LOOP.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\AUDIO\AMBIENCE_SPACECRAFT_HOLD_LOOP.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\AUDIO\AMBIENCE_TUNDRA_LOOP_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\AUDIO\AMBIENCE_TUNNEL_WIND_LOOP.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\AUDIO\AMBIENCE_UNDERGROUND_POWER_STATION_LOOP.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\AUDIO\ONE_SHOT_CINEMATIC_EFFECT_10.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\AUDIO\ONE_SHOT_SPACE_TEAR.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\AUDIO\SUB_DROP_DEEP.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Dystopia ÔÇô Ambience and Drone Preview\Dystopia Full Library.pdf" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\Error Triplet-5.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\FUI Button Beep Clean.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\FUI Holographic Button Press-1.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\FUI Holographic Interaction Radiate.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\FUI Navigation Tone Stereo Flutter.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\FUI Ping Triplet Echo.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\High-Tech Gadget Activate.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\Hologram Menu Open-2.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\Holographic Interaction-32.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\Holographic Tap Interaction.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\Old Terminal Alarm Loop.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\Old Terminal Computing-3.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\Old Terminal Popup Appear Low.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\Static Glitch Short.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Audio\Telemetry Ticker Loop-2.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Future UI Preview\Future UI info.txt" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\CLOTHING_MATERIAL_MOVEMENT_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\HIGH_SNAP_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\HIT_METAL_WRENCH_HEAVIEST_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\HIT_SHORT_04.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\HIT_SLAP_07.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_CLEAN_HEAVY_10.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_DESIGNED_HEAVY_23.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_DESIGNED_HEAVY_74.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_DESIGNED_HEAVY_86.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_ELECTRIC_HEAVY_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_ELECTRIC_HEAVY_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_INTENSE_HEAVY_03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_PERCUSSIVE_HEAVY_08.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_PERCUSSIVE_HEAVY_09.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_SQUELCH_HEAVY_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\PUNCH_SQUELCH_HEAVY_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\WHOOSH_AIRY_FLUTTER_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\AUDIO\WHOOSH_ARM_SWING_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Hit and Punch Preview\Hit and Punch Full Library.pdf" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\ANMLBat_Creature Vocalisation_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\BEEPTimer_Anticipation Beeps_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\BEEP_Targeting Loop_06.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\BLLTBy_Bullet By Centred Fast_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\BLLTImpt_Hit Marker_07.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\BLLTRico_Metallic_11.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\BLLTRico_Ricochet Metallic_04.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\BLLTShel_Shell Eject_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\CREAMnstr_Beast Vocalisation_09.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\DSGNStngr_Kill Confirm Metallic_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\EXPLDsgn_Explosion Impact_14.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\EXPLDsgn_Explosion Rumble Distorted_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\EXPLDsgn_Implode_15.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GORESplt_Giblet Splatter_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNArtl_Grenade Launcher Fire_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNArtl_Rocket Launcher Fire_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNAuto_Assault Rifle A Fire_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNAuto_Assault Rifle D Burst_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNAuto_Plasmid Machinegun Burst_07.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNAuto_RPU Mk2 Burst_04.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNAuto_Sci Fi Shotgun Burst_03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNCano_Quad Cannon Fire Double_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNMech_Arm Weapon Rattle_10.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNMech_Empty Clip Burst B_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNMech_Insert Clip_04.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNMech_Mechanical_12.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNMech_Scope Deactivate_06.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNMech_Scope Deactivate_11.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNPis_Pistol Fire Longer Tail_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNSupr_Silenced Pistol Fire Short_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNTech_Sci Fi Shotgun Fire_04.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\GUNTech_Tormentor Shotgun Fire_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LASRBeam_Plasma Loop_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LASRGun_Alien Handgun Burst_03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LASRGun_Classic Blaster A Fire_03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LASRGun_Electron Impeller Charged Fire_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LASRGun_Electron Impeller Fire_07.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LASRGun_Ion Pistol C Burst_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LASRGun_Particle Compressor Fire_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LASRGun_Plasma Rifle Bullet Stream_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LASRGun_Plasma Rifle Fire_03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\LIQImpt_Goo Splatter_09.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\MECHClik_Mine Deploy_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\MOTRSrvo_Plasma Rifle Arm_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\SCIEnrg_Energy Orb_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\SCIEnrg_Shield Activate Deactivate_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\SCIMisc_Arm Weapon Heavy_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\SCIMisc_Reload Alien Tech_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\UIBeep_Lock On_05.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\AUDIO\UIGlitch_Error Tone_03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Sci Fi Weapons Cyberpunk Arsenal Preview\Sci Fi Weapons Full Library.pdf" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Bank Card Placed Down 03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coin Counter Loop 01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coin Dropped on Ceramic Dish.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coin Dropped on Wood Rattle.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coin Flung.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coin Hardcover Spin Loop.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coin Slid Along Wood.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coins in Sack Dropped on Soft Surface.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coins In Sack Dropped on Wood.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coins_Bottlecaps_Drop.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Coins_Placed_Down_Hardcover_Pitched.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Notes Scrunched In Wallet.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Receipt Handled 03.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\AUDIO\Wallet Close.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\The Mint ÔÇô Coins and Money Preview\The Mint Full Library.pdf" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\Apple Keyboard\Apple Keyboard_Typing Long_02.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\Laptop\Laptop_Brush Keyboard_12.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\Laptop\Laptop_Keystroke_82.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\Laptop\Laptop_Spacebar_06.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\Laptop\Laptop_Typing Short_04.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\PC Keyboard\PC Keyboard_Brush_18.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\PC Keyboard\PC Keyboard_Keystroke_28.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\PC Keyboard\PC Keyboard_Spacebar_06.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\Tablet\Tablet_Swipe_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\Tablet\Tablet_Tap_07.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\Tablet\Tablet_Typing_01.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Shapeforms Audio Free Sound Effects\Type Preview\Tablet\Tablet_Typing_06.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Soldiers\AntiTank-Class.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Soldiers\Assault-Class.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Soldiers\Grenadier-Class.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Soldiers\MachineGunner-Class.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Soldiers\RadioOperator-Class.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Soldiers\Sniper-Class.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Soldiers\Soldier Animation Info.txt" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Soldiers\SquadLeader.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\battle.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\fx\alien-talk-1.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\fx\alien-talk-2.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\fx\alien-talk-3.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\fx\scream.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\fx\start-level.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\in-the-wreckage.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\loading.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\meet-the-princess.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\menu.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Space Music Pack\slow-travel.wav" />
+    <None Include="$(MSBuildThisFileDirectory)assets\SpinningCoin\Spinning Coin.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\SpinningCoin\SpinningCoin.aseprite" />
+    <None Include="$(MSBuildThisFileDirectory)assets\SpinningCoin\SpinningCoin.gif" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Tileset\tileset_arranged.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\Tileset\tileset_compressed.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\dotted-arrows.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\health-bars.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\icon-set.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\mouse-pointer.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\numbers.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\objective-flag.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\objective-pulse.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\overhead-health-bars.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\panel-frames.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\range-grid.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\selection-circles.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\selection-cursor.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\solid-arrows-thick.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\solid-arrows-thin.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\squad-insignia.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\target-cursor.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI\terrain-icons.png" />
+    <None Include="$(MSBuildThisFileDirectory)assets\UI_grey_buttons_light_1.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\atlas.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\atlas.xcf" />
+    <None Include="$(MSBuildThisFileDirectory)Content\battle.mp3" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\enemybee_fires.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\enemy_spots_player.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\explosion.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\File.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\health_collected.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\menu.mp3" />
+    <None Include="$(MSBuildThisFileDirectory)Content\player_shoots.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\room-0.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\room-1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\room-2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\room-3.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\room-4.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\room-5.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\room-6.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\room-7.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\room-8.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\room-9.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\win_collected.wav" />
+  </ItemGroup>
+</Project>

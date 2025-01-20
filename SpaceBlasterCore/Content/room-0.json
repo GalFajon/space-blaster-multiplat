@@ -1,0 +1,12 @@
+{
+    "Goal": "none",
+    "Objects": [
+        {
+            "Type": "health",
+            "Coordinates": [
+                6,
+                6
+            ]
+        }
+    ]
+}

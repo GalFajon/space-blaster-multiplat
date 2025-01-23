@@ -11,8 +11,17 @@
     <AndroidPackageFormat>apk</AndroidPackageFormat>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Content\ui.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Content\ui.png" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.2.1105" />
     <PackageReference Include="MonoGame.Framework.Android" Version="3.8.2.1105" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpaceBlaster\SpaceBlaster.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Content\room-0.json">
@@ -53,5 +62,4 @@
     <Message Text="Restoring dotnet tools" Importance="High" />
     <Exec Command="dotnet tool restore" />
   </Target>
-  <Import Project="..\SpaceBlasterCore\SpaceBlasterCore.projitems" Label="Shared" />
 </Project>

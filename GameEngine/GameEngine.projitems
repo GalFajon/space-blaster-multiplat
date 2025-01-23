@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6efba8a9-a407-4029-bdd0-651d22a87386</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>GameEngine</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\AI\AIHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Audio\AudioHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Audio\MusicManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Audio\SoundEffectsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Collision\CollisionHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Input\InputManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Physics\PhysicsEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\RandomNumber.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Scene\SceneHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\AnimatedSprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\AnimationPlayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\GameRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Sprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\UIRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Animatable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\ArtificialIntelligence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Camera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Collider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)scene\components\InputHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Physics.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Position.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\SceneObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Scene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Button.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Label.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Content\ui.png" />
+  </ItemGroup>
+</Project>

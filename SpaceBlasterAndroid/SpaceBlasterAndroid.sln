@@ -4,6 +4,12 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBlasterAndroid", "SpaceBlasterAndroid.csproj", "{EFC758EE-B94F-E903-1F83-9DC779D58E45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBlasterWindows", "..\SpaceBlasterWindows\SpaceBlasterWindows.csproj", "{F47F8B11-8CAA-4982-B231-6BCF0E01AECC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GameEngine", "..\GameEngine\GameEngine.shproj", "{E13256F2-55CE-4598-90A1-69E3FBEB2478}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBlaster", "..\SpaceBlaster\SpaceBlaster.csproj", "{DFF0B767-4C95-4C62-91E4-A9B375948BBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,13 +18,27 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EFC758EE-B94F-E903-1F83-9DC779D58E45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFC758EE-B94F-E903-1F83-9DC779D58E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC758EE-B94F-E903-1F83-9DC779D58E45}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{EFC758EE-B94F-E903-1F83-9DC779D58E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFC758EE-B94F-E903-1F83-9DC779D58E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC758EE-B94F-E903-1F83-9DC779D58E45}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F47F8B11-8CAA-4982-B231-6BCF0E01AECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F47F8B11-8CAA-4982-B231-6BCF0E01AECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F47F8B11-8CAA-4982-B231-6BCF0E01AECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F47F8B11-8CAA-4982-B231-6BCF0E01AECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF0B767-4C95-4C62-91E4-A9B375948BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF0B767-4C95-4C62-91E4-A9B375948BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF0B767-4C95-4C62-91E4-A9B375948BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF0B767-4C95-4C62-91E4-A9B375948BBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A28AA2C-7220-4A4C-940B-5F3EDE2A1563}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\GameEngine\GameEngine.projitems*{dff0b767-4c95-4c62-91e4-a9b375948bbf}*SharedItemsImports = 5
+		..\GameEngine\GameEngine.projitems*{e13256f2-55ce-4598-90a1-69e3fbeb2478}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

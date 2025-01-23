@@ -9,15 +9,6 @@
     <Import_RootNamespace>SpaceBlasterCore</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\AI\AIHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Audio\AudioHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Audio\MusicManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Audio\SoundEffectsManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Collision\CollisionHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Input\InputManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Physics\PhysicsEngine.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\RandomNumber.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Gameplay\Scene\SceneHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Collectables\CollectableWeapon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Collectables\Currency.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Collectables\Health.cs" />
@@ -51,22 +42,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Wall\Wall.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Weapon\Weapon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameSpecific\Win\Win.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Graphics\AnimatedSprite.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Graphics\AnimationPlayer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Graphics\GameRenderer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Sprite.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Graphics\UIRenderer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Animatable.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\ArtificialIntelligence.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Camera.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Collider.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Physics.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Position.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\SceneObject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\Scene.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Button.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Image.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Label.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpaceBlaster.cs" />
   </ItemGroup>
   <ItemGroup>

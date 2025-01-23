@@ -18,14 +18,14 @@ namespace SpaceBlasterAndroid
     )]
     public class Activity1 : AndroidGameActivity
     {
-        private SpaceBlaster.SpaceBlasterGame _game;
+        private SpaceBlasterAndroid _game;
         private View _view;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            _game = new SpaceBlaster.SpaceBlasterGame();
+            _game = new SpaceBlasterAndroid();
             _view = _game.Services.GetService(typeof(View)) as View;
 
             SetContentView(_view);

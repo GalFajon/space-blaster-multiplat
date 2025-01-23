@@ -1,2 +1,4 @@
-﻿using var game = new SpaceBlaster.SpaceBlasterGame();
+﻿using SpaceBlasterWindows;
+
+using var game = new SpaceBlasterWindows.SpaceBlasterWindows();
 game.Run();

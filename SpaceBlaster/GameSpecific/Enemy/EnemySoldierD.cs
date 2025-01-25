@@ -42,9 +42,9 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
 
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(0, 0), 2, 0.2, 16, 16, 3, 0.05f) },
-                { 1, new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(0, 16), 2, 0.2, 16, 16, 3, 0.05f) },
-                { 2, new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(3, 44), 1, 0.2, 13, 13, 3, 0.05f) }
+                { 0, new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(0, 0), 2, 0.2, 16, 16, 3, 0.05f, new Vector2(0, 0)) },
+                { 1, new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(0, 16), 2, 0.2, 16, 16, 3, 0.05f, new Vector2(0, 0)) },
+                { 2, new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(3, 44), 1, 0.2, 13, 13, 3, 0.05f, new Vector2(0, 0)) }
             }
         );
     }

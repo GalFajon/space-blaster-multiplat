@@ -2,7 +2,7 @@
     "Goal": "kill_enemies",
     "Objects": [
         {
-            "Type": "zombie",
+            "Type": "bee",
             "Coordinates": [
                 5,
                 6

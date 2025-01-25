@@ -39,6 +39,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Image.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scene\UI\Label.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)scene\ui\UIAnimatable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Content\ui.png" />

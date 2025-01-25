@@ -12,6 +12,7 @@ public class TitleScreen : GameEngine.Scene.Scene
 
     public TitleScreen(SpaceBlaster.SpaceBlasterGame game) : base(game)
     {
+        SpaceBlasterGame.Settings.Save();
         _game = game;
 
         this.Camera = new Camera(0, 0, this, null);

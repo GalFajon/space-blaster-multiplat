@@ -16,13 +16,6 @@
             ]
         },
         {
-            "Type": "bee",
-            "Coordinates": [
-                7,
-                6
-            ]
-        },
-        {
             "Type": "coverwall",
             "Coordinates": [
                 5,

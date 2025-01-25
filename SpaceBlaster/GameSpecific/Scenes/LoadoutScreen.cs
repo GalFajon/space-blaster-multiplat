@@ -21,6 +21,7 @@ public class LoadoutScreen : GameEngine.Scene.Scene
 
     public LoadoutScreen(SpaceBlaster.SpaceBlasterGame game) : base(game)
     {
+        SpaceBlasterGame.Settings.Save();
         _game = game;
 
         this.Camera = new Camera(0, 0, this, null);

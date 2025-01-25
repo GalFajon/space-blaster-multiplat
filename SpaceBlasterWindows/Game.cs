@@ -18,8 +18,13 @@ namespace SpaceBlasterWindows
     public class SpaceBlasterWindows : SpaceBlasterGame
     {
         public SpaceBlasterWindows() : base() {
-            Settings.GetStream = () => {
-                return File.OpenRead("./Content/settings.json");
+            Settings.getStream = (writing) => {
+                if (writing)
+                {
+                    File.WriteAllText("./Content/settings.json", "");
+                    return File.OpenWrite("./Content/settings.json");
+                }
+                else return File.OpenRead("./Content/settings.json");
             };
 
             RoomLayouts.GetStream = (int i) => {

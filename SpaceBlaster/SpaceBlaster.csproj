@@ -44,9 +44,6 @@
     <None Update="Content\room-9.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Content\settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="..\GameEngine\GameEngine.projitems" Label="Shared" />
 </Project>

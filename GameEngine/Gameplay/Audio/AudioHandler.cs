@@ -20,8 +20,7 @@ public class AudioHandler : GameComponent
 
     public override void Update(GameTime gameTime)
     {
-        if (MediaPlayer.State == MediaState.Stopped)
-            MediaPlayer.Play(MusicManager.getCurrentSong(), TimeSpan.Zero);
+        if (MediaPlayer.State == MediaState.Stopped) MediaPlayer.Play(MusicManager.getCurrentSong(), TimeSpan.Zero);
 
         while (SoundEffectsManager.SoundQueue.Count > 0)
         {

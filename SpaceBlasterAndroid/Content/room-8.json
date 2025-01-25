@@ -9,17 +9,10 @@
             ]
         },
         {
-            "Type": "soldier_pistol",
+            "Type": "soldier_machinegun",
             "Coordinates": [
                 7,
                 7
-            ]
-        },
-        {
-            "Type": "soldier_pistol",
-            "Coordinates": [
-                7,
-                5
             ]
         },
         {

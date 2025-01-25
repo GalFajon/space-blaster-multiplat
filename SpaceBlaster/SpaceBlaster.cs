@@ -15,7 +15,7 @@ namespace SpaceBlaster
     {
         public static Texture2D TextureAtlas = null;
         public int roomsCleared = 0;
-        public static Settings Settings = new Settings(null);
+        public static Settings Settings = new Settings();
 
         public SpaceBlasterGame() : base() {}
 

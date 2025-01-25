@@ -16,6 +16,7 @@ public class SettingsScreen : GameEngine.Scene.Scene
 
     public SettingsScreen(SpaceBlaster.SpaceBlasterGame game) : base(game)
     {
+        SpaceBlasterGame.Settings.Save();
         _game = game;
 
         this.Camera = new Camera(0, 0, this, null);

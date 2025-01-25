@@ -14,7 +14,7 @@ public class BackgroundWall : Position, IAnimatable
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(124, 34), 1, 0.2, 16, 16, 3, 0.1f) },
+                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(124, 34), 1, 0.2, 16, 16, 3, 0.1f, new Vector2(0, 0)) },
             }
         );
 

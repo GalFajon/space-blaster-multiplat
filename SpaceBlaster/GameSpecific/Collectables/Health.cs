@@ -14,7 +14,7 @@ public class Health : Collider, IAnimatable
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(37, 20), 1, 0.2, 16, 10, 3, 0f) },
+                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(37, 20), 1, 0.2, 16, 10, 3, 0f, new Vector2(0, 0)) },
             }
         );
 

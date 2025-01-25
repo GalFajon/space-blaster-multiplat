@@ -51,7 +51,7 @@ public class UIRenderer : DrawableGameComponent
 
     public Matrix GetUIRendererTransformationMatrix()
     {
-        Matrix t = Matrix.CreateRotationZ(_game.CurrentScene.Camera.Rot) * Matrix.CreateScale(new Vector3(_game.CurrentScene.Camera.ScaleX, _game.CurrentScene.Camera.ScaleY, 1.0f));
+        Matrix t = Matrix.CreateRotationZ(_game.CurrentScene.Camera.Rot) * Matrix.CreateScale(new Vector3(((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (float)GameBase.VirtualResolutionWidth), ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (float)GameBase.VirtualResolutionHeight), 1.0f));
         return t;
     }
 
@@ -69,6 +69,7 @@ public class UIRenderer : DrawableGameComponent
             else if (item is Position itemWithPosition)
             {
                 Sprite sprite = null;
+                AnimatedSprite asprite = null;
 
                 if (item is Image i) sprite = i.Sprite;
 
@@ -86,9 +87,19 @@ public class UIRenderer : DrawableGameComponent
                     }
                 }
 
+                if (item is IUIAnimatable a)
+                {
+                    asprite = a.AnimationPlayer.GetCurrentSprite();
+                }
+
                 if (sprite != null)
                 {
                     _spriteBatch.Draw(sprite.texture, itemWithPosition.Pos, sprite.rect, Color.White, 0, new Vector2(0, 0), sprite.Scale * ButtonScale, sprite.effect, 0.1f);
+                }
+
+                if (asprite != null)
+                {
+                    _spriteBatch.Draw(asprite.texture, itemWithPosition.Pos, asprite.rects[asprite.currentFrame], asprite.color, asprite.Rotation, asprite.center, asprite.Scale, asprite.effect, asprite.depth);
                 }
             }
         }

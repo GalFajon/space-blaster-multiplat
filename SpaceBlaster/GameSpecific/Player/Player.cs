@@ -16,6 +16,7 @@ public class Player : Physics, IAnimatable, IInputHandler
 {
     private float health = 3;
     public float MaxHealth = 3;
+    private Button switchWeaponButton = null;
     public float Health
     {
         get => health;
@@ -58,13 +59,21 @@ public class Player : Physics, IAnimatable, IInputHandler
     public readonly float MaxSpeed = 180;
 
     private Bar healthBar = new Bar(0, -20, null);
-    private PlayerMoveMarker moveMarker;
+    private JoystickMarker moveMarker;
+    private JoystickMarker shootMarker;
+    private JoystickMarker moveMarker2;
+    private JoystickMarker shootMarker2;
+
     public WeaponStats primaryWeapon = PremadeWeapons.Pistol;
     public WeaponStats secondaryWeapon = PremadeWeapons.Shotgun;
     public bool whichWeapon = false;
     public Weapon currentWeapon = null;
     private bool canSwitchWeapon = true;
     public AnimationPlayer AnimationPlayer { get; set; }
+
+    private double CurrentTimer = 0;
+    private readonly double InvinicibilityTimer = 750;
+    private bool invincible = false;
 
     // Android controls
     Vector2 MovePivot = new Vector2(0, 0);
@@ -75,8 +84,8 @@ public class Player : Physics, IAnimatable, IInputHandler
         this.primaryWeapon = primary;
         this.secondaryWeapon = secondary;
 
-        var still = new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(0, 0), 2, 0.2, 16, 16, 3, 0.05f);
-        var walk = new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(0, 16), 2, 0.2, 16, 16, 3, 0.05f);
+        var still = new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(0, 0), 2, 0.2, 16, 16, 3, 0.05f, new Vector2(0, 0));
+        var walk = new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(0, 16), 2, 0.2, 16, 16, 3, 0.05f, new Vector2(0, 0));
 
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
@@ -99,8 +108,29 @@ public class Player : Physics, IAnimatable, IInputHandler
 
         if (OperatingSystem.IsAndroid())
         {
-            this.moveMarker = new PlayerMoveMarker(0, 0, this.scene, this);
+            this.moveMarker = new JoystickMarker(0, 0, this.scene, null);
             this.scene.Spawn(moveMarker);
+
+            this.shootMarker = new JoystickMarker(0, 0, this.scene, null);
+            this.scene.Spawn(shootMarker);
+            this.shootMarker.AnimationPlayer.SetCurrentAnimation(1);
+
+            this.moveMarker2 = new JoystickMarker(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32, this.scene, null);
+            this.scene.Spawn(moveMarker2);
+            this.moveMarker2.AnimationPlayer.SetCurrentAnimation(2);
+
+            this.shootMarker2 = new JoystickMarker(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32, this.scene, null);
+            this.scene.Spawn(shootMarker2);
+            this.shootMarker2.AnimationPlayer.SetCurrentAnimation(3);
+
+            switchWeaponButton = new Button(SpaceBlasterGame.VirtualResolutionWidth - UIRenderer.ButtonWidth * UIRenderer.ButtonScale, SpaceBlasterGame.VirtualResolutionHeight - UIRenderer.ButtonHeight * 2 * UIRenderer.ButtonScale, new Label(16, 10, "S", Color.White, this.scene, null), this.scene, null);
+            switchWeaponButton.Big = false;
+            switchWeaponButton.clickHandler = () =>
+            {
+                this.SwitchWeapon();
+            };
+
+            this.scene.Spawn(switchWeaponButton);
         }
     }
 
@@ -149,13 +179,29 @@ public class Player : Physics, IAnimatable, IInputHandler
 
     public override void HandleCollision(Collider collided)
     {
-        if (collided is Projectile) this.Health -= 1;
+        if (collided is Projectile && !this.invincible)
+        {
+            this.Health -= 1;
+            this.invincible = true;
+            this.CurrentTimer = 0;
+        }
         else if (collided is PlayerProjectile) return;
         else if (collided is EntranceDoor) this.currentWeapon.CanShoot = false;
     }
 
     public void HandleInput(GameTime gameTime, TouchCollection touchstate, KeyboardState keyboard, MouseState mouse, Matrix renderer, Matrix UI)
     {
+        if (invincible) this.AnimationPlayer.GetCurrentSprite().color = Color.Red;
+        else this.AnimationPlayer.GetCurrentSprite().color = Color.White;
+
+        if (invincible) this.CurrentTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+
+        if (this.CurrentTimer > this.InvinicibilityTimer)
+        {
+            invincible = false;
+            this.CurrentTimer = 0;
+        }
+
         if (OperatingSystem.IsWindows())
         {
             this.Move(keyboard.IsKeyDown(Keys.A), keyboard.IsKeyDown(Keys.W), keyboard.IsKeyDown(Keys.S), keyboard.IsKeyDown(Keys.D));
@@ -169,7 +215,7 @@ public class Player : Physics, IAnimatable, IInputHandler
 
             if (this.currentWeapon != null)
             {
-                Vector2 dir = Vector2.Subtract(new Vector2(InputManager.MousePosUI.X, InputManager.MousePosUI.Y), new Vector2(SpaceBlasterGame.VirtualResolutionWidth / (2 * SpaceBlasterGame.Settings.CameraZoom), SpaceBlasterGame.VirtualResolutionHeight / (2 * SpaceBlasterGame.Settings.CameraZoom)));
+                Vector2 dir = Vector2.Subtract(new Vector2(InputManager.MousePosUI.X, InputManager.MousePosUI.Y), new Vector2(SpaceBlasterGame.VirtualResolutionWidth / 2, SpaceBlasterGame.VirtualResolutionHeight / 2));
                 dir = Vector2.Normalize(dir);
 
                 this.currentWeapon.Aim(dir);
@@ -184,36 +230,53 @@ public class Player : Physics, IAnimatable, IInputHandler
         {
             foreach (var touch in touchstate)
             {
-                Vector2 UITouchPos = Vector2.Transform(new Vector2(touch.Position.X, touch.Position.Y), Matrix.Invert(renderer));
-    
-                if (UITouchPos.X < SpaceBlasterGame.VirtualResolutionWidth / 2)
+                if (!this.switchWeaponButton.clicked)
                 {
-                    if (touch.State == TouchLocationState.Pressed) MovePivot = UITouchPos;
-                    else if (touch.State == TouchLocationState.Moved && MovePivot.X != 0 && MovePivot.Y != 0)
+                    Vector2 UITouchPos = Vector2.Transform(new Vector2(touch.Position.X, touch.Position.Y), Matrix.Invert(renderer));
+
+                    if (UITouchPos.X < SpaceBlasterGame.VirtualResolutionWidth / 2)
                     {
-                        if (MovePivot != UITouchPos)
+                        if (touch.State == TouchLocationState.Pressed)
                         {
-                            var moveDir = Vector2.Subtract(UITouchPos, MovePivot);
-                            moveDir.Normalize();
-                            if (moveDir.X != 0 && moveDir.Y != 0)
+                            this.moveMarker.Pos = UITouchPos;
+                            MovePivot = UITouchPos;
+                        }
+                        else if (touch.State == TouchLocationState.Moved && MovePivot.X != 0 && MovePivot.Y != 0)
+                        {
+                            if (MovePivot != UITouchPos)
                             {
-                                this.Move(moveDir);
-                                this.moveMarker.Aim(moveDir);
+                                var moveDir = Vector2.Subtract(UITouchPos, MovePivot);
+                                moveDir.Normalize();
+                                if (moveDir.X != 0 && moveDir.Y != 0)
+                                {
+                                    this.moveMarker2.Pos = new Vector2(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32) + Vector2.One * moveDir * 64;
+                                    this.Move(moveDir);
+                                    this.moveMarker.Aim(moveDir);
+                                    this.moveMarker2.Aim(moveDir);
+                                }
                             }
                         }
+                        else if (touch.State == TouchLocationState.Released) this.Move(Vector2.Zero);
                     }
-                    else if (touch.State == TouchLocationState.Released) this.Move(Vector2.Zero);
-                }
-                else if (UITouchPos.X > SpaceBlasterGame.VirtualResolutionWidth / 2)
-                {
-                    if (touch.State == TouchLocationState.Pressed) AimPivot = UITouchPos;
-                    else if (touch.State == TouchLocationState.Moved && AimPivot.X != 0 && AimPivot.Y != 0)
+                    else if (UITouchPos.X > SpaceBlasterGame.VirtualResolutionWidth / 2)
                     {
-                        if (AimPivot != UITouchPos) { 
-                            var aimDir = Vector2.Subtract(UITouchPos, AimPivot);
-                            aimDir.Normalize();
-                            this.currentWeapon.Aim(aimDir);
-                            this.currentWeapon.Shoot();
+                        if (touch.State == TouchLocationState.Pressed)
+                        {
+                            AimPivot = UITouchPos;
+                            this.shootMarker.Pos = UITouchPos;
+                        }
+                        else if (touch.State == TouchLocationState.Moved && AimPivot.X != 0 && AimPivot.Y != 0)
+                        {
+                            if (AimPivot != UITouchPos)
+                            {
+                                var aimDir = Vector2.Subtract(UITouchPos, AimPivot);
+                                aimDir.Normalize();
+                                this.shootMarker2.Pos = new Vector2(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32) + Vector2.One * aimDir * 64;
+                                this.currentWeapon.Aim(aimDir);
+                                this.currentWeapon.Shoot();
+                                this.shootMarker.Aim(aimDir);
+                                this.shootMarker2.Aim(aimDir);
+                            }
                         }
                     }
                 }

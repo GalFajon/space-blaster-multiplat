@@ -13,7 +13,7 @@ public class Marker : Position, IAnimatable
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(67, 19), 1, 0.2, 14, 14, 3, 0f) },
+                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(67, 19), 1, 0.2, 14, 14, 3, 0f, new Vector2(0, 0)) },
             }
         );
 

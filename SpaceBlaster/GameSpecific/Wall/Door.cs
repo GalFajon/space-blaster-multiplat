@@ -13,8 +13,8 @@ public class Door : Collider, IAnimatable
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(52, 133), 1, 0.2, 16, 16, 3, 0f) },
-                { 1, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(70, 133), 1, 0.2, 16, 16, 3, 0f) }
+                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(52, 133), 1, 0.2, 16, 16, 3, 0f, new Vector2(0, 0)) },
+                { 1, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(70, 133), 1, 0.2, 16, 16, 3, 0f, new Vector2(0, 0)) }
             }
         );
 

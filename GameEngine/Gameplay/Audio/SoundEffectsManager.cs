@@ -17,7 +17,7 @@ public class SoundEffectsManager
 
     public static void setVolume(float v)
     {
-        if (v > 0f && v <= 1f) SoundEffect.MasterVolume = v;
+        if (v >= 0f && v <= 1f) SoundEffect.MasterVolume = v;
     }
 
     public static void Play(SceneObject request, string key)

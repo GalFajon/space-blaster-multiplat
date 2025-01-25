@@ -15,7 +15,7 @@ public class Projectile : Physics, IAnimatable
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(21, 139), 1, 0.2, 6, 6, 3, 0f) },
+                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(21, 139), 1, 0.2, 6, 6, 3, 0f, new Vector2(0, 0)) },
             }
         );
 

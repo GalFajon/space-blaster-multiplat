@@ -22,9 +22,9 @@ public class Bar : Position, IAnimatable
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(32, 132), 1, 0.2, 16, 4, 3, 0f) },
-                { 1, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(32, 136), 1, 0.2, 16, 4, 3, 0f) },
-                { 2, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(32, 140), 1, 0.2, 16, 4, 3, 0f) },
+                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(32, 132), 1, 0.2, 16, 4, 3, 0f, new Vector2(0, 0)) },
+                { 1, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(32, 136), 1, 0.2, 16, 4, 3, 0f, new Vector2(0, 0)) },
+                { 2, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(32, 140), 1, 0.2, 16, 4, 3, 0f, new Vector2(0, 0)) },
             }
         );
 

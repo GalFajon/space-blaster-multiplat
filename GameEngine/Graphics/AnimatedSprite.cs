@@ -23,15 +23,16 @@ public class AnimatedSprite
     public Color color = Color.White;
     public bool loop = true;
     public bool finished = false;
-
+    public Vector2 center = Vector2.Zero;
     public SpriteEffects effect = SpriteEffects.None;
 
-    public AnimatedSprite(Texture2D texture, Vector2 origin, int frames, double time, int frameWidth, int frameHeight, int scale, float depth)
+    public AnimatedSprite(Texture2D texture, Vector2 origin, int frames, double time, int frameWidth, int frameHeight, int scale, float depth, Vector2 center)
     {
         this.texture = texture;
         this.frames = frames;
         this.origin = origin;
         this.Scale = scale;
+        this.center = center;
 
         Width = frameWidth;
         Height = frameHeight;

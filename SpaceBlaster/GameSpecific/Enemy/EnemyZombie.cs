@@ -30,8 +30,8 @@ public class EnemyZombie : Enemy, IPathFollower, IAnimatable
 
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(88, 3), 2, 0.2, 16, 13, 3, 0f) },
-                { 1,  new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(89, 21), 4, 0.2, 16, 13, 3, 0f) }
+                { 0, new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(88, 3), 2, 0.2, 16, 13, 3, 0f, new Vector2(0, 0)) },
+                { 1,  new AnimatedSprite(SpaceBlaster.SpaceBlasterGame.TextureAtlas, new Vector2(89, 21), 4, 0.2, 16, 13, 3, 0f, new Vector2(0, 0)) }
             }
         );
 

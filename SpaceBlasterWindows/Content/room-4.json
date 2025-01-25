@@ -2,17 +2,10 @@
     "Goal": "kill_enemies",
     "Objects": [
         {
-            "Type": "bee",
+            "Type": "zombie",
             "Coordinates": [
                 2,
                 10
-            ]
-        },
-        {
-            "Type": "bee",
-            "Coordinates": [
-                10,
-                2
             ]
         },
         {

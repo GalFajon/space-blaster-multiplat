@@ -10,7 +10,7 @@ public class Settings
     public WeaponStats secondary;
     public int SFXVolume { get; set; } = 100;
     public int MusicVolume { get; set; } = 100;
-    public float CameraZoom { get; set; } = 1;
+    public float CameraZoom { get; set; } = (OperatingSystem.IsAndroid()) ? 1.3f : 1;
     public int Currency { get; set; } = 0;
     public int HighScore { get; set; } = 0;
     public bool PistolUnlocked { get; set; } = true;
@@ -18,34 +18,39 @@ public class Settings
     public bool ShotgunUnlocked { get; set; } = true;
     public bool MachineGunUnlocked { get; set; } = false;
 
-    public Settings(FileStream s) {}
+    public Settings() {}
 
-    public Func<Stream> GetStream {  get; set; }
+    public Func<bool, Stream> getStream;
     public void Save()
     {
-        //using (Stream stream = this.GetStream()) stream.Write(JsonSerializer.SerializeToUtf8Bytes(this));
+        using (Stream stream = this.getStream(true)) stream.Write(JsonSerializer.SerializeToUtf8Bytes(this));
     }
 
     public void Load()
     {
-        if (this.GetStream != null)
+        if (this.getStream != null)
         {
-            /*var s = this.GetStream();
-            var text = new StreamReader(s).ReadToEnd();
+            try
+            {
+                var s = this.getStream(false);
+                var text = new StreamReader(s).ReadToEnd();
+                Settings n = JsonSerializer.Deserialize<Settings>(text);
+                this.SFXVolume = n.SFXVolume;
+                this.MusicVolume = n.MusicVolume;
+                this.CameraZoom = n.CameraZoom;
+                this.Currency = n.Currency;
+                this.HighScore = n.HighScore;
 
-            Settings n = JsonSerializer.Deserialize<Settings>(text);
-            this.SFXVolume = n.SFXVolume;
-            this.MusicVolume = n.MusicVolume;
-            this.CameraZoom = n.CameraZoom;
-            this.Currency = n.Currency;
-            this.HighScore = n.HighScore;
-
-            this.PistolUnlocked = n.PistolUnlocked;
-            this.SubMachineGunUnlocked = n.SubMachineGunUnlocked;
-            this.MachineGunUnlocked = n.MachineGunUnlocked;
-            this.ShotgunUnlocked = n.ShotgunUnlocked;
-            s.Close();*/
+                this.PistolUnlocked = n.PistolUnlocked;
+                this.SubMachineGunUnlocked = n.SubMachineGunUnlocked;
+                this.MachineGunUnlocked = n.MachineGunUnlocked;
+                this.ShotgunUnlocked = n.ShotgunUnlocked;
+                s.Close();
+            }
+            catch (Exception ex) {
+                this.Save();
+            }
         }
-        //else throw new Exception("Delegate for getting settings file is not defined for this platform.");
+        else throw new Exception("Delegate for getting settings file is not defined for this platform.");
     }
 };

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GameEngine.Scene.Components;
+using SpaceBlaster;
 
 namespace GameEngine.Graphics;
 
@@ -23,7 +24,7 @@ public class GameRenderer : DrawableGameComponent
     public bool IsOnScreen(Vector2 pos, float width = 0, float height = 0)
     {
         var e1 = Vector2.Transform(new Vector2(0, 0), Matrix.Invert(GetRendererTransformationMatrix()));
-        var e4 = new Vector2(_game.CurrentScene.Camera.Pos.X + GameBase.VirtualResolutionWidth, _game.CurrentScene.Camera.Pos.Y + GameBase.VirtualResolutionHeight);
+        var e4 = new Vector2(_game.CurrentScene.Camera.Pos.X + GameBase.VirtualResolutionWidth / SpaceBlasterGame.Settings.CameraZoom, _game.CurrentScene.Camera.Pos.Y + GameBase.VirtualResolutionHeight / SpaceBlasterGame.Settings.CameraZoom);
         return
             pos.X + width > e1.X &&
             pos.X - width < e4.X &&
@@ -67,7 +68,7 @@ public class GameRenderer : DrawableGameComponent
                     {
                         if (IsOnScreen(itemWithPosition.Pos, sprite.Width * sprite.Scale, sprite.Height * sprite.Scale))
                         {
-                            _spriteBatch.Draw(sprite.texture, itemWithPosition.Pos, sprite.rects[sprite.currentFrame], sprite.color, sprite.Rotation, new Vector2(0, 0), sprite.Scale, sprite.effect, sprite.depth);
+                            _spriteBatch.Draw(sprite.texture, itemWithPosition.Pos, sprite.rects[sprite.currentFrame], sprite.color, sprite.Rotation, sprite.center, sprite.Scale, sprite.effect, sprite.depth);
                         }
                     }
                 }

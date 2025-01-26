@@ -19,7 +19,7 @@ public class Camera : Position
         }
         set
         {
-            scaleX = ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (float)GameBase.VirtualResolutionWidth) * value;
+            scaleX = (((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width) / (float)GameBase.VirtualResolutionWidth) * value;
         }
     }
     public float ScaleY

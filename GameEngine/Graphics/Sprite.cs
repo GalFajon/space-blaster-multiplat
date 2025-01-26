@@ -9,9 +9,14 @@ public class Sprite
     public Rectangle rect;
     public Vector2 origin;
     public SpriteEffects effect = SpriteEffects.None;
-    public int Scale = 1;
+    public float Scale = 1;
     public float Rotation = 0;
-    public Sprite(Texture2D texture, Rectangle rect, Vector2 origin, int scale = 1)
+    public float depth = 0.0f;
+    public Color color = Color.White;
+    public Vector2 center = Vector2.Zero;
+    public float opacity = 1f;
+
+    public Sprite(Texture2D texture, Rectangle rect, Vector2 origin, float scale = 1)
     {
         this.texture = texture;
         this.rect = rect;

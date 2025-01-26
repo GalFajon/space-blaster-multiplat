@@ -30,7 +30,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\ArtificialIntelligence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Camera.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Collider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)scene\components\Drawable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)scene\components\InputHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)scene\components\Particle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)scene\components\ParticleEmitter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Physics.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\Position.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scene\Components\SceneObject.cs" />

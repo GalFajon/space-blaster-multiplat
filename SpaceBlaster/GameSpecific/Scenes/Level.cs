@@ -64,9 +64,10 @@ public class Level : GameEngine.Scene.Scene
         Components = new List<SceneObject>() { };
 
         _player = new Player(SpaceBlasterGame.Settings.primary, SpaceBlasterGame.Settings.secondary, 48 * 6, 48 * 6, this);
+
         if (oldPlayerHealth != 0) _player.Health = oldPlayerHealth;
 
-        Camera = new Camera(-((float)SpaceBlasterGame.VirtualResolutionWidth / (2 * SpaceBlasterGame.Settings.CameraZoom)), -((float)SpaceBlasterGame.VirtualResolutionHeight / (SpaceBlasterGame.Settings.CameraZoom * 2)), this, _player);
+        Camera = new Camera(-((float)SpaceBlasterGame.VirtualResolutionWidth / (SpaceBlasterGame.Settings.CameraZoom * 2)), -((float)SpaceBlasterGame.VirtualResolutionHeight / (SpaceBlasterGame.Settings.CameraZoom * 2)), this, _player);
         Camera.ScaleX = Camera.ScaleX * SpaceBlasterGame.Settings.CameraZoom;
         Camera.ScaleY = Camera.ScaleY * SpaceBlasterGame.Settings.CameraZoom;
 

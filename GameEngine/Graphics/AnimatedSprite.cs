@@ -13,7 +13,7 @@ public class AnimatedSprite
     public int Width = 0;
     public int Height = 0;
     public float Rotation = 0;
-    public int Scale = 1;
+    public float Scale = 1;
     private int frames;
     public int currentFrame = 0;
     private double frameTime;
@@ -25,7 +25,7 @@ public class AnimatedSprite
     public bool finished = false;
     public Vector2 center = Vector2.Zero;
     public SpriteEffects effect = SpriteEffects.None;
-
+    public float opacity = 1f;
     public AnimatedSprite(Texture2D texture, Vector2 origin, int frames, double time, int frameWidth, int frameHeight, int scale, float depth, Vector2 center)
     {
         this.texture = texture;

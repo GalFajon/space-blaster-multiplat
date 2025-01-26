@@ -11,7 +11,7 @@ public class Currency : Collider, IAnimatable
 {
     public AnimationPlayer AnimationPlayer { get; set; }
     private int value;
-    public Currency(int value, float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 32, 32), scene, parent)
+    public Currency(int value, float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 48, 48), scene, parent)
     {
         this.value = value;
         this.AnimationPlayer = new AnimationPlayer(

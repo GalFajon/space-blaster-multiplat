@@ -10,4 +10,9 @@ static class RandomNumber
     {
         return rand.Next(min, max);
     }
+
+    public static float GetRandomFloat(float min, float max)
+    {
+        return (float)(rand.NextDouble() * (max - min) + min);
+    }
 }

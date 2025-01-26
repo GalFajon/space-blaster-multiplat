@@ -17,10 +17,10 @@ public class Settings
     public bool SubMachineGunUnlocked { get; set; } = false;
     public bool ShotgunUnlocked { get; set; } = true;
     public bool MachineGunUnlocked { get; set; } = false;
-
+    public bool FlameThrowerUnlocked { get; set; } = false;
     public Settings() {}
 
-    public Func<bool, Stream> getStream;
+    public Func<bool, Stream> getStream = null;
     public void Save()
     {
         using (Stream stream = this.getStream(true)) stream.Write(JsonSerializer.SerializeToUtf8Bytes(this));
@@ -34,6 +34,7 @@ public class Settings
             {
                 var s = this.getStream(false);
                 var text = new StreamReader(s).ReadToEnd();
+                Debug.WriteLine(text);
                 Settings n = JsonSerializer.Deserialize<Settings>(text);
                 this.SFXVolume = n.SFXVolume;
                 this.MusicVolume = n.MusicVolume;
@@ -45,6 +46,7 @@ public class Settings
                 this.SubMachineGunUnlocked = n.SubMachineGunUnlocked;
                 this.MachineGunUnlocked = n.MachineGunUnlocked;
                 this.ShotgunUnlocked = n.ShotgunUnlocked;
+                this.FlameThrowerUnlocked = n.FlameThrowerUnlocked;
                 s.Close();
             }
             catch (Exception ex) {

@@ -19,20 +19,20 @@ namespace SpaceBlasterAndroid
     {
         public SpaceBlasterAndroid() : base() {
             Settings.getStream = (writing) => {
-                if (!Directory.Exists(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "SpaceBlaster")))
-                {
-                    Directory.CreateDirectory(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "SpaceBlaster"));
-                }
+                if (!File.Exists(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "/settings.json"))) {
+                    if (!Directory.Exists(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal)))) 
+                        Directory.CreateDirectory(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal)));
 
-                if (!File.Exists(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "SpaceBlaster", "/settings.json"))) {
-                    File.Create(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "SpaceBlaster", "/settings.json"));
+                    File.Create(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "/settings.json"));
+                    Settings.Save();
                 }
 
                 if (writing)
                 {
-                    return new FileStream(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "SpaceBlaster", "/settings.json"), FileMode.Open, FileAccess.ReadWrite);
+                    File.WriteAllText(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "/settings.json"),"");
+                    return new FileStream(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "/settings.json"), FileMode.Open, FileAccess.ReadWrite);
                 }
-                else return new FileStream(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "SpaceBlaster", "/settings.json"), FileMode.Open, FileAccess.Read);
+                else return new FileStream(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "/settings.json"), FileMode.Open, FileAccess.Read);
             };
 
             RoomLayouts.GetStream = (int i) => {

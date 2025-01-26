@@ -10,6 +10,7 @@ using GameEngine.Gameplay.AI;
 using GameEngine.Gameplay.Physics;
 using GameEngine.Gameplay.Collision;
 using GameEngine.Gameplay.Scene;
+using System.Diagnostics;
 
 namespace GameEngine
 {
@@ -17,6 +18,7 @@ namespace GameEngine
     {
         public static int VirtualResolutionWidth = 1920;
         public static int VirtualResolutionHeight = 1080;
+
         public Scene.Scene CurrentScene = null;
 
         public GameRenderer Renderer = null;
@@ -37,7 +39,8 @@ namespace GameEngine
         {
             graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-            graphics.IsFullScreen = true;
+
+            graphics.IsFullScreen = false;
             graphics.SynchronizeWithVerticalRetrace = false;
             graphics.ApplyChanges();
 

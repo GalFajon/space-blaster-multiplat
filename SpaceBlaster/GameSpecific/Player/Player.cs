@@ -61,13 +61,15 @@ public class Player : Physics, IAnimatable, IInputHandler
     private Bar healthBar = new Bar(0, -20, null);
     private JoystickMarker moveMarker;
     private JoystickMarker shootMarker;
-    private JoystickMarker moveMarker2;
+    //private JoystickMarker moveMarker2;
     private JoystickMarker shootMarker2;
 
     public WeaponStats primaryWeapon = PremadeWeapons.Pistol;
     public WeaponStats secondaryWeapon = PremadeWeapons.Shotgun;
     public bool whichWeapon = false;
+    
     public Weapon currentWeapon = null;
+
     private bool canSwitchWeapon = true;
     public AnimationPlayer AnimationPlayer { get; set; }
 
@@ -79,7 +81,7 @@ public class Player : Physics, IAnimatable, IInputHandler
     Vector2 MovePivot = new Vector2(0, 0);
     Vector2 AimPivot = new Vector2(0, 0);
 
-    public Player(WeaponStats primary, WeaponStats secondary, float x, float y, Scene scene, SceneObject parent = null, int color = 3) : base(x, y, new Rectangle(0, 0, 32, 32), true, scene, parent)
+    public Player(WeaponStats primary, WeaponStats secondary, float x, float y, Scene scene, SceneObject parent = null, int color = 3) : base(x, y, new Rectangle(0, 0, 40, 40), true, scene, parent)
     {
         this.primaryWeapon = primary;
         this.secondaryWeapon = secondary;
@@ -102,8 +104,7 @@ public class Player : Physics, IAnimatable, IInputHandler
         this.scene.Spawn(healthBar);
         healthBar.SetState(BarState.HIGH);
 
-        currentWeapon = new Weapon(primaryWeapon, 8 * 3, 8 * 3, this.scene, this);
-        currentWeapon.Parent = this;
+        currentWeapon = new Weapon(secondaryWeapon, 8 * 3, 8 * 3, this.scene, this);
         this.scene.Spawn(currentWeapon);
 
         if (OperatingSystem.IsAndroid())
@@ -115,9 +116,9 @@ public class Player : Physics, IAnimatable, IInputHandler
             this.scene.Spawn(shootMarker);
             this.shootMarker.AnimationPlayer.SetCurrentAnimation(1);
 
-            this.moveMarker2 = new JoystickMarker(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32, this.scene, null);
-            this.scene.Spawn(moveMarker2);
-            this.moveMarker2.AnimationPlayer.SetCurrentAnimation(2);
+            //this.moveMarker2 = new JoystickMarker(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32, this.scene, null);
+            //this.scene.Spawn(moveMarker2);
+            //this.moveMarker2.AnimationPlayer.SetCurrentAnimation(2);
 
             this.shootMarker2 = new JoystickMarker(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32, this.scene, null);
             this.scene.Spawn(shootMarker2);
@@ -224,6 +225,9 @@ public class Player : Physics, IAnimatable, IInputHandler
                 {
                     this.currentWeapon.Shoot();
                 }
+                else if (mouse.LeftButton == ButtonState.Released) {
+                    this.currentWeapon.StopShoot();
+                }
             }
         }
         else if (OperatingSystem.IsAndroid())
@@ -249,10 +253,10 @@ public class Player : Physics, IAnimatable, IInputHandler
                                 moveDir.Normalize();
                                 if (moveDir.X != 0 && moveDir.Y != 0)
                                 {
-                                    this.moveMarker2.Pos = new Vector2(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32) + Vector2.One * moveDir * 64;
+                                    //this.moveMarker2.Pos = new Vector2(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32) + Vector2.One * moveDir * 64;
                                     this.Move(moveDir);
                                     this.moveMarker.Aim(moveDir);
-                                    this.moveMarker2.Aim(moveDir);
+                                    //this.moveMarker2.Aim(moveDir);
                                 }
                             }
                         }
@@ -277,6 +281,10 @@ public class Player : Physics, IAnimatable, IInputHandler
                                 this.shootMarker.Aim(aimDir);
                                 this.shootMarker2.Aim(aimDir);
                             }
+                        }
+                        else if (touch.State == TouchLocationState.Released)
+                        {
+                            this.currentWeapon.StopShoot();
                         }
                     }
                 }

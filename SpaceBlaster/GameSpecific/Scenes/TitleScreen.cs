@@ -12,8 +12,32 @@ public class TitleScreen : GameEngine.Scene.Scene
 
     public TitleScreen(SpaceBlaster.SpaceBlasterGame game) : base(game)
     {
-        SpaceBlasterGame.Settings.Save();
+        //SpaceBlasterGame.Settings.Save();
         _game = game;
+
+        /*this._components.Add(
+            new ParticleEmitter(
+                SpaceBlasterGame.VirtualResolutionWidth / 2 - 300,
+                SpaceBlasterGame.VirtualResolutionHeight / 2 - 300,
+                new GameEngine.Graphics.Sprite(SpaceBlasterGame.TextureAtlas, new Rectangle(21,132,6,6) ,new Vector2(0,0), 3),
+                new Vector2(1,0),
+                0.5f,
+                100,
+                150,
+                1,
+                false,
+                150,
+                500,
+                1,
+                0,
+                1f,
+                3f,
+                Color.Red,
+                Color.Orange,
+                this,
+                null
+            )
+        );*/
 
         this.Camera = new Camera(0, 0, this, null);
 

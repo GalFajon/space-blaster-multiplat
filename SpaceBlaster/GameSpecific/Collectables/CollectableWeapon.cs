@@ -12,7 +12,7 @@ public class CollectableWeapon : Collider, IAnimatable
     public AnimationPlayer AnimationPlayer { get; set; }
     WeaponStats Stats;
 
-    public CollectableWeapon(WeaponStats stats, float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 32, 32), scene, parent)
+    public CollectableWeapon(WeaponStats stats, float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 48, 48), scene, parent)
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){

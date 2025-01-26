@@ -11,7 +11,7 @@ public class LoadoutScreen : GameEngine.Scene.Scene
     private SpaceBlaster.SpaceBlasterGame _game = null;
     Label currencyLabel = null;
     private static WeaponStats[] buyableWeapons = new WeaponStats[] { PremadeWeapons.Pistol, PremadeWeapons.SubMachineGun };
-    private static WeaponStats[] buyableWeaponsSecondary = new WeaponStats[] { PremadeWeapons.Shotgun, PremadeWeapons.MachineGun };
+    private static WeaponStats[] buyableWeaponsSecondary = new WeaponStats[] { PremadeWeapons.Shotgun, PremadeWeapons.MachineGun, PremadeWeapons.FlameThrower };
     private int selectedWeaponSecondary = 0;
     private int selectedWeapon = 0;
     Label currentWeaponLabel = null;
@@ -21,7 +21,7 @@ public class LoadoutScreen : GameEngine.Scene.Scene
 
     public LoadoutScreen(SpaceBlaster.SpaceBlasterGame game) : base(game)
     {
-        SpaceBlasterGame.Settings.Save();
+        //SpaceBlasterGame.Settings.Save();
         _game = game;
 
         this.Camera = new Camera(0, 0, this, null);
@@ -156,6 +156,7 @@ public class LoadoutScreen : GameEngine.Scene.Scene
 
                 buyableWeaponsSecondary[this.selectedWeaponSecondary].Unlocked = true;
                 if (buyableWeaponsSecondary[this.selectedWeaponSecondary].DisplayName == PremadeWeapons.MachineGun.DisplayName) SpaceBlasterGame.Settings.MachineGunUnlocked = true;
+                if (buyableWeaponsSecondary[this.selectedWeaponSecondary].DisplayName == PremadeWeapons.FlameThrower.DisplayName) SpaceBlasterGame.Settings.FlameThrowerUnlocked = true;
 
                 this.UpdateCurrencyLabel();
                 this.updateCurrentSecondaryWeaponLabel();
@@ -216,7 +217,7 @@ public class LoadoutScreen : GameEngine.Scene.Scene
         if (!buyableWeaponsSecondary[this.selectedWeaponSecondary].Unlocked)
         {
             this.buyEquipSecondaryButton.label.Text = "Buy";
-            this.currentSecondaryWeaponLabel.Text = buyableWeaponsSecondary[this.selectedWeaponSecondary].DisplayName + " (" + buyableWeapons[this.selectedWeaponSecondary].Price + ")";
+            this.currentSecondaryWeaponLabel.Text = buyableWeaponsSecondary[this.selectedWeaponSecondary].DisplayName + " (" + buyableWeaponsSecondary[this.selectedWeaponSecondary].Price + ")";
         }
         else
         {

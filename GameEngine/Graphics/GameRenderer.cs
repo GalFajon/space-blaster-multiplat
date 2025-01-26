@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GameEngine.Scene.Components;
 using SpaceBlaster;
+using System.Diagnostics;
 
 namespace GameEngine.Graphics;
 
@@ -59,18 +60,34 @@ public class GameRenderer : DrawableGameComponent
 
             foreach (SceneObject item in _game.CurrentScene.Components)
             {
-                if (item is Position itemWithPosition && item is IAnimatable animatable)
+                if (item is Position itemWithPosition)
                 {
-                    animatable.AnimationPlayer.Update(gameTime);
-                    AnimatedSprite sprite = animatable.AnimationPlayer.GetCurrentSprite();
-
-                    if (sprite != null)
+                    if (item is IAnimatable animatable)
                     {
-                        if (IsOnScreen(itemWithPosition.Pos, sprite.Width * sprite.Scale, sprite.Height * sprite.Scale))
+                        animatable.AnimationPlayer.Update(gameTime);
+                        AnimatedSprite sprite = animatable.AnimationPlayer.GetCurrentSprite();
+                        
+                        if (sprite != null)
                         {
-                            _spriteBatch.Draw(sprite.texture, itemWithPosition.Pos, sprite.rects[sprite.currentFrame], sprite.color, sprite.Rotation, sprite.center, sprite.Scale, sprite.effect, sprite.depth);
+                            if (IsOnScreen(itemWithPosition.Pos, sprite.Width * sprite.Scale, sprite.Height * sprite.Scale))
+                            {
+                                _spriteBatch.Draw(sprite.texture, itemWithPosition.Pos, sprite.rects[sprite.currentFrame], sprite.color * sprite.opacity, sprite.Rotation, sprite.center, sprite.Scale, sprite.effect, sprite.depth);
+                            }
                         }
                     }
+                    else if (item is GameEngine.Scene.Components.IDrawable drawable)
+                    {
+                        Sprite sprite = drawable.sprite;
+                        if (sprite != null)
+                        {
+                            if (IsOnScreen(itemWithPosition.Pos, sprite.rect.Width * sprite.Scale, sprite.rect.Height * sprite.Scale))
+                            {
+                                _spriteBatch.Draw(sprite.texture, itemWithPosition.Pos, sprite.rect, sprite.color * sprite.opacity, sprite.Rotation, sprite.center, sprite.Scale, sprite.effect, sprite.depth);
+                            }
+                        }
+                    }
+
+
                 }
             }
 

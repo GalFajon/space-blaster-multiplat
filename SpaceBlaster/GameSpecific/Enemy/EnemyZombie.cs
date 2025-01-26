@@ -15,7 +15,7 @@ public enum EnemyZombieState
 public class EnemyZombie : Enemy, IPathFollower, IAnimatable
 {
     public double MoveTimer { get; set; } = 0;
-    public double MaxMoveTimer { get; set; } = 1250;
+    public double MaxMoveTimer { get; set; } = 1000;
     public Stack<Vector2> Path { get; set; } = new Stack<Vector2>();
     public List<Marker> Markers { get; set; } = new List<Marker>();
 
@@ -23,8 +23,11 @@ public class EnemyZombie : Enemy, IPathFollower, IAnimatable
     private double currentTimer = 0;
     public EnemyZombieState current = EnemyZombieState.STILL;
 
-    public EnemyZombie(float x, float y, Scene scene, SceneObject parent = null) : base(5, x, y, new Rectangle(0, 0, 32, 32), true, scene, parent)
+    public EnemyZombie(float x, float y, Scene scene, SceneObject parent = null) : base(5, x, y, new Rectangle(0, 0, 48, 48), true, scene, parent)
     {
+        this.MaxHealth = 5;
+        this.Health = 5;
+
         this.currencyValue = 5;
         this.StunTimer = 100;
 

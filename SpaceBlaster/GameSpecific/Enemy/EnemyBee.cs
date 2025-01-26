@@ -14,10 +14,13 @@ public class EnemyBee : Enemy, IPathFollower, IAnimatable
     public double MaxMoveTimer { get; set; } = 1000;
     public Stack<Vector2> Path { get; set; } = new Stack<Vector2>();
     public List<Marker> Markers { get; set; } = new List<Marker>();
-    public double ShootTimer = 1000;
+    public double ShootTimer = 750;
     public double CurrentTimer = 0;
-    public EnemyBee(float x, float y, GameEngine.Scene.Scene scene, SceneObject parent = null) : base(3, x, y, new Rectangle(0, 0, 32, 32), true, scene, parent)
+    public EnemyBee(float x, float y, GameEngine.Scene.Scene scene, SceneObject parent = null) : base(3, x, y, new Rectangle(0, 0, 48, 48), true, scene, parent)
     {
+        this.MaxHealth = 3;
+        this.Health = 3;
+
         this.currencyValue = 5;
         this.IsSolid = false;
         this.StunTimer = 300;

@@ -9,7 +9,7 @@ namespace GameSpecific;
 public class Door : Collider, IAnimatable
 {
     public AnimationPlayer AnimationPlayer { get; set; }
-    public Door(float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 32, 32), scene, parent)
+    public Door(float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 40, 40), scene, parent)
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){

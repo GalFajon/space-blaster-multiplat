@@ -7,6 +7,7 @@ using GameSpecific;
 using GameEngine.Gameplay.Input;
 using GameEngine.Scene.UI;
 using GameEngine.Scene.Components;
+using SpaceBlaster;
 
 namespace GameEngine.Graphics;
 
@@ -51,7 +52,10 @@ public class UIRenderer : DrawableGameComponent
 
     public Matrix GetUIRendererTransformationMatrix()
     {
-        Matrix t = Matrix.CreateRotationZ(_game.CurrentScene.Camera.Rot) * Matrix.CreateScale(new Vector3(((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (float)GameBase.VirtualResolutionWidth), ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (float)GameBase.VirtualResolutionHeight), 1.0f));
+        Matrix t = Matrix.CreateRotationZ(_game.CurrentScene.Camera.Rot) *
+            Matrix.CreateScale(new Vector3(((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (float)GameBase.VirtualResolutionWidth), ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (float)GameBase.VirtualResolutionHeight), 1.0f));
+            //Matrix.CreateTranslation(-(SpaceBlasterGame.AspectRatioDifferenceWidth) / 2, 0,0);
+
         return t;
     }
 
@@ -94,12 +98,12 @@ public class UIRenderer : DrawableGameComponent
 
                 if (sprite != null)
                 {
-                    _spriteBatch.Draw(sprite.texture, itemWithPosition.Pos, sprite.rect, Color.White, 0, new Vector2(0, 0), sprite.Scale * ButtonScale, sprite.effect, 0.1f);
+                    _spriteBatch.Draw(sprite.texture, itemWithPosition.Pos, sprite.rect, sprite.color * sprite.opacity, 0, new Vector2(0, 0), sprite.Scale * ButtonScale, sprite.effect, 0.1f);
                 }
 
                 if (asprite != null)
                 {
-                    _spriteBatch.Draw(asprite.texture, itemWithPosition.Pos, asprite.rects[asprite.currentFrame], asprite.color, asprite.Rotation, asprite.center, asprite.Scale, asprite.effect, asprite.depth);
+                    _spriteBatch.Draw(asprite.texture, itemWithPosition.Pos, asprite.rects[asprite.currentFrame], asprite.color * asprite.opacity, asprite.Rotation, asprite.center, asprite.Scale, asprite.effect, asprite.depth);
                 }
             }
         }

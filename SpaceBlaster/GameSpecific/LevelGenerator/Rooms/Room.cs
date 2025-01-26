@@ -33,7 +33,7 @@ public class Room : Position
     readonly public int Rows = 0, Columns = 0;
 
     // tole lahko razširiš na bolj splošen tile sistem
-    readonly public int tileWidth = 48, tileHeight = 48;
+    readonly public int tileWidth = 16 * 3, tileHeight = 16 * 3;
     public RoomGoals goal = RoomGoals.NONE;
     public bool goalComplete = false;
 

@@ -12,7 +12,7 @@ public class PlayerProjectile : Physics, IAnimatable
 
     public float Damage = 1;
     public AnimationPlayer AnimationPlayer { get; set; }
-    public PlayerProjectile(float damage, float x, float y, Vector2 dir, float speed, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 6, 6), true, scene, parent)
+    public PlayerProjectile(float damage, float x, float y, Vector2 dir, float speed, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 18, 18), true, scene, parent)
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
@@ -30,7 +30,7 @@ public class PlayerProjectile : Physics, IAnimatable
 
     public override void HandleCollision(Collider collider)
     {
-        if (collider is not Player && collider is not PlayerProjectile && collider is not Projectile && collider is not CoverWall && collider is not Currency) this.Destroy();
+        if (collider is not Player && collider is not PlayerProjectile && collider is not Projectile && collider is not CoverWall && collider is not Currency && collider is not DamageArea) this.Destroy();
         else return;
     }
 }

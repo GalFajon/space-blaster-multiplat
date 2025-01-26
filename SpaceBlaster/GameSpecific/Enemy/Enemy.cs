@@ -15,8 +15,8 @@ public class Enemy : Physics, IArtificialIntelligence, IAnimatable
     protected bool DoesStun = true;
     public Room Room { get; set; }
     protected Bar healthBar = new Bar(0, -20, null);
-    protected float MaxHealth = 3;
-    protected float health = 3;
+    protected float MaxHealth = 4;
+    protected float health = 4;
     protected int currencyValue = 10;
     protected float Health
     {
@@ -60,11 +60,20 @@ public class Enemy : Physics, IArtificialIntelligence, IAnimatable
 
     public override void HandleCollision(Collider collided)
     {
-        if (collided is PlayerProjectile p && !this.IsHit)
+        if ((collided is PlayerProjectile || collided is DamageArea) && !this.IsHit)
         {
-            this.Health -= p.Damage;
-            this.IsHit = true;
-            this.CurStunTimer = 0;
+            if (collided is PlayerProjectile p)
+            {
+                this.Health -= p.Damage;
+                this.IsHit = true;
+                this.CurStunTimer = 0;
+            }
+            else if (collided is DamageArea d && d.active)
+            {
+                this.Health -= d.Damage;
+                this.IsHit = true;
+                this.CurStunTimer = 0;
+            }
         }
     }
 

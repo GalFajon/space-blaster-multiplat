@@ -26,16 +26,17 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
     private double OutOfCoverTimer = 1000;
     private double InCoverTimer = 500;
     public double MoveTimer { get; set; } = 0;
-    public double MaxMoveTimer { get; set; } = 2000;
+    public double MaxMoveTimer { get; set; } = 1700;
     public Stack<Vector2> Path { get; set; } = new Stack<Vector2>();
     public List<Marker> Markers { get; set; } = new List<Marker>();
     private Weapon weapon;
-    public EnemySoldierD(WeaponStats weaponstats, float x, float y, GameEngine.Scene.Scene scene, SceneObject parent = null) : base(4, x, y, new Rectangle(0, 0, 32, 32), true, scene, parent)
+    public EnemySoldierD(WeaponStats weaponstats, float x, float y, GameEngine.Scene.Scene scene, SceneObject parent = null) : base(4, x, y, new Rectangle(0, 0, 48, 48), true, scene, parent)
     {
+        this.Health = 3;
+        this.MaxHealth = 3;
         this.currencyValue = 10;
         this.IsSolid = false;
-        weapon = new Weapon(weaponstats, 32, 20, null);
-        weapon.Parent = this;
+        weapon = new Weapon(weaponstats, 32, 20, this.scene, this);
         this.scene.Spawn(weapon);
 
         this.StunTimer = 150;
@@ -158,11 +159,21 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
 
     public override void HandleCollision(Collider collided)
     {
-        if (collided is PlayerProjectile p && this.currentState != EnemySoldierState.IN_COVER && !this.IsHit)
+        if ((collided is PlayerProjectile || collided is DamageArea) && this.currentState != EnemySoldierState.IN_COVER && !this.IsHit)
         {
-            this.Health -= p.Damage;
-            this.IsHit = true;
-            this.CurStunTimer = 0;
+            if (collided is PlayerProjectile p)
+            {
+                this.Health -= p.Damage;
+                this.IsHit = true;
+                this.CurStunTimer = 0;
+            }
+
+            if (collided is DamageArea d && d.active)
+            {
+                this.Health -= d.Damage;
+                this.IsHit = true;
+                this.CurStunTimer = 0;
+            }
 
             if (this.Health <= 0) (this as IPathFollower).ClearMarkers();
         }

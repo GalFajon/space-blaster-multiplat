@@ -3,16 +3,22 @@ namespace GameSpecific;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using GameEngine.Gameplay.Audio;
 using GameEngine.Graphics;
 using GameEngine.Scene;
 using GameEngine.Scene.Components;
 using SpaceBlaster;
 
+public enum WeaponType
+{
+    GUN,
+    FLAMETHROWER
+}
 
 public struct WeaponStats
 {
-    public WeaponStats(int projectileCount, float damage, float spread, double firerate, int speed, string displayName, bool unlocked = true, int price = 0)
+    public WeaponStats(int projectileCount, float damage, float spread, double firerate, int speed, string displayName, WeaponType type = WeaponType.GUN, bool unlocked = true, int price = 0)
     {
         this.ProjectileCount = projectileCount;
         this.Damage = damage;
@@ -22,6 +28,7 @@ public struct WeaponStats
         this.Price = price;
         this.DisplayName = displayName;
         this.Unlocked = unlocked;
+        this.type = type;
     }
     public int ProjectileCount;
     public float Damage;
@@ -31,15 +38,18 @@ public struct WeaponStats
     public int Price = 0;
     public bool Unlocked;
     public string DisplayName = "";
+    public WeaponType type = WeaponType.GUN;
 }
 
 public struct PremadeWeapons
 {
     //player weapons
-    public static WeaponStats Pistol = new WeaponStats(1, 1, 0.0f, 600, 600, "Pistol", SpaceBlasterGame.Settings.PistolUnlocked, 0);
-    public static WeaponStats SubMachineGun = new WeaponStats(1, 0.3f, 0.30f, 200, 400, "SMG", SpaceBlasterGame.Settings.SubMachineGunUnlocked, 300);
-    public static WeaponStats Shotgun = new WeaponStats(3, 0.5f, 0.4f, 500, 500, "Shotgun", SpaceBlasterGame.Settings.ShotgunUnlocked, 0);
-    public static WeaponStats MachineGun = new WeaponStats(1, 1, 0.3f, 250, 600, "Machine gun", SpaceBlasterGame.Settings.MachineGunUnlocked, 300);
+    public static WeaponStats Pistol = new WeaponStats(1, 1, 0.0f, 600, 600, "Pistol", WeaponType.GUN, SpaceBlasterGame.Settings.PistolUnlocked, 0);
+    public static WeaponStats SubMachineGun = new WeaponStats(1, 0.4f, 0.30f, 200, 400, "SMG", WeaponType.GUN, SpaceBlasterGame.Settings.SubMachineGunUnlocked, 300);
+    public static WeaponStats Shotgun = new WeaponStats(3, 0.5f, 0.4f, 500, 500, "Shotgun", WeaponType.GUN, SpaceBlasterGame.Settings.ShotgunUnlocked, 0);
+    public static WeaponStats MachineGun = new WeaponStats(1, 1, 0.3f, 250, 600, "Machine gun", WeaponType.GUN, SpaceBlasterGame.Settings.MachineGunUnlocked, 300);
+    //public static WeaponStats FlameThrower = new WeaponStats(1, 1, 0.3f, 250, 600, "FlameThrower", WeaponType.FLAMETHROWER, SpaceBlasterGame.Settings.MachineGunUnlocked, 300);
+    public static WeaponStats FlameThrower = new WeaponStats(3, 0.5f, 0.5f, 100, 500, "Flamethrower", WeaponType.FLAMETHROWER, SpaceBlasterGame.Settings.FlameThrowerUnlocked, 1000);
 
     // enemy weapons
     public static WeaponStats EnemyShotgun = new WeaponStats(3, 0.25f, 0.3f, 600, 200, "");
@@ -56,6 +66,10 @@ public class Weapon : Position, IArtificialIntelligence, IAnimatable
     private Random rand = new Random();
     public WeaponStats stats;
 
+    ParticleEmitter flames;
+    DamageArea damageArea;
+    bool shooting = false;
+
     public Weapon(WeaponStats wstats, float x, float y, Scene scene, SceneObject parent = null) : base(x, y, scene, parent)
     {
         this.AnimationPlayer = new AnimationPlayer(
@@ -66,13 +80,56 @@ public class Weapon : Position, IArtificialIntelligence, IAnimatable
 
         this.AnimationPlayer.SetCurrentAnimation(0);
 
+        flames = new ParticleEmitter(
+            -8,
+            -8,
+            new Sprite(SpaceBlasterGame.TextureAtlas, new Rectangle(21, 132, 6, 6), new Vector2(0, 0), 3),
+            new Vector2(1, 0),
+            wstats.Spread,
+            wstats.ProjectileSpeed / 2,
+            wstats.ProjectileSpeed,
+            wstats.ProjectileCount,
+            false,
+            (float)wstats.FireRate,
+            300,
+            1,
+            0,
+            1f,
+            3f,
+            Color.Red,
+            Color.Orange,
+            this.scene,
+            this
+        );
+
+        flames.emit = false;
+        this.scene.Spawn(flames);
+
+        damageArea = new DamageArea(0, 0, 48 * 2, 48 * 2, this.scene, this);
+        damageArea.Damage = wstats.Damage;
+        damageArea.active = false;
+
+        this.scene.Spawn(damageArea);
+
         stats = wstats;
     }
 
-    public void HandleAI(GameTime gameTime)
+    public virtual void HandleAI(GameTime gameTime)
     {
-        if (CanShoot == false) CurrentTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
-        if (CurrentTimer > stats.FireRate) CanShoot = true;
+        if (this.stats.type == WeaponType.GUN)
+        {
+            if (CanShoot == false) CurrentTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (CurrentTimer > stats.FireRate) CanShoot = true;
+        }
+        else if (this.stats.type == WeaponType.FLAMETHROWER)
+        {
+            flames.dir = this.Direction;
+
+            if (shooting) damageArea.Pos = (new Vector2(-48, -48)) + flames.dir * 48 * 1.5f;
+
+            flames.emit = shooting;
+            damageArea.active = shooting;
+        }
     }
 
     public void Aim(Vector2 dir)
@@ -86,25 +143,35 @@ public class Weapon : Position, IArtificialIntelligence, IAnimatable
         else spr.Unflip();
     }
 
-    public void Shoot()
+    public virtual void Shoot()
     {
-        if (CanShoot)
-        {
-            if (this.Parent != null)
+        if (this.stats.type == WeaponType.GUN) {
+            if (CanShoot)
             {
-                for (int i = 0; i < stats.ProjectileCount; i++)
+                if (this.Parent != null)
                 {
-                    Vector2 dir = Direction;
-                    dir = Vector2.Rotate(dir, stats.Spread * (float)rand.NextDouble() * (rand.Next(2) == 1 ? -1 : 1));
+                    for (int i = 0; i < stats.ProjectileCount; i++)
+                    {
+                        Vector2 dir = Direction;
+                        dir = Vector2.Rotate(dir, stats.Spread * (float)rand.NextDouble() * (rand.Next(2) == 1 ? -1 : 1));
 
-                    if (this.Parent is Player) this.scene.Spawn(new PlayerProjectile(this.stats.Damage, this.Pos.X, this.Pos.Y, dir, this.stats.ProjectileSpeed, null));
-                    else if (this.Parent is Enemy) this.scene.Spawn(new Projectile(this.stats.Damage, this.Pos.X, this.Pos.Y, dir, this.stats.ProjectileSpeed, null));
+                        if (this.Parent is Player) this.scene.Spawn(new PlayerProjectile(this.stats.Damage, this.Pos.X, this.Pos.Y, dir, this.stats.ProjectileSpeed, null));
+                        else if (this.Parent is Enemy) this.scene.Spawn(new Projectile(this.stats.Damage, this.Pos.X, this.Pos.Y, dir, this.stats.ProjectileSpeed, null));
+                    }
                 }
-            }
 
-            CanShoot = false;
-            CurrentTimer = 0;
-            SoundEffectsManager.Play(this, "player_shoots");
+                CanShoot = false;
+                CurrentTimer = 0;
+                SoundEffectsManager.Play(this, "player_shoots");
+            }
         }
+        else if (this.stats.type == WeaponType.FLAMETHROWER)
+        {
+            shooting = true;
+        }
+    }
+    public void StopShoot()
+    {
+        if (this.stats.type == WeaponType.FLAMETHROWER) shooting = false;
     }
 }

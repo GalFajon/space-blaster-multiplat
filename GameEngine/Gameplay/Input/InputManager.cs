@@ -17,24 +17,6 @@ namespace GameEngine.Gameplay.Input;
 public class InputManager : GameComponent
 {
     // inputs
-    /*
-    public bool Up = false;
-    public bool Down = false;
-    public bool Left = false;
-    public bool Right = false;
-    public bool Restart = false;
-
-    public bool Shoot = false;
-    public bool SwitchWeapon = false;
-    public bool SwitchingWeapon = false;
-    public bool CanRestart = false;
-    Vector2 MovePivot = new Vector2(0,0);
-    bool Moving = false;
-    Vector2 MoveDir = new Vector2(0,0);
-    Vector2 ShootPivot = new Vector2(0,0);
-    Vector2 WeaponDir = new Vector2(0, 0);
-    */
-
     public static Vector2 MousePosWorld = Vector2.Zero;
     public static Vector2 MousePosUI = Vector2.Zero;
 

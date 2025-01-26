@@ -11,10 +11,98 @@
     <AndroidPackageFormat>apk</AndroidPackageFormat>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Content\atlas.png" />
+    <None Remove="Content\background-menu.png" />
+    <None Remove="Content\background-title.png" />
+    <None Remove="Content\background.png" />
+    <None Remove="Content\battle.mp3" />
+    <None Remove="Content\door_open.wav" />
+    <None Remove="Content\enemybee_fires.wav" />
+    <None Remove="Content\enemy_hit.wav" />
+    <None Remove="Content\enemy_spots_player.wav" />
+    <None Remove="Content\explosion.wav" />
+    <None Remove="Content\favicon.ico" />
+    <None Remove="Content\File.spritefont" />
+    <None Remove="Content\flamethrower.wav" />
+    <None Remove="Content\health_collected.wav" />
+    <None Remove="Content\intro_1.png" />
+    <None Remove="Content\intro_2.png" />
+    <None Remove="Content\intro_3.png" />
+    <None Remove="Content\intro_4.png" />
+    <None Remove="Content\menu.mp3" />
+    <None Remove="Content\music_lose.wav" />
+    <None Remove="Content\player_hit.wav" />
+    <None Remove="Content\player_shoots.wav" />
+    <None Remove="Content\room-0.json" />
+    <None Remove="Content\room-1.json" />
+    <None Remove="Content\room-2.json" />
+    <None Remove="Content\room-3.json" />
+    <None Remove="Content\room-4.json" />
+    <None Remove="Content\room-5.json" />
+    <None Remove="Content\room-6.json" />
+    <None Remove="Content\room-7.json" />
+    <None Remove="Content\room-8.json" />
+    <None Remove="Content\room-9.json" />
     <None Remove="Content\ui.png" />
+    <None Remove="Content\weapon_switch.wav" />
+    <None Remove="Content\win_collected.wav" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Content\atlas.png" />
+    <AndroidAsset Include="Content\background-menu.png" />
+    <AndroidAsset Include="Content\background-title.png" />
+    <AndroidAsset Include="Content\background.png" />
+    <AndroidAsset Include="Content\battle.mp3" />
+    <AndroidAsset Include="Content\door_open.wav" />
+    <AndroidAsset Include="Content\enemybee_fires.wav" />
+    <AndroidAsset Include="Content\enemy_hit.wav" />
+    <AndroidAsset Include="Content\enemy_spots_player.wav" />
+    <AndroidAsset Include="Content\explosion.wav" />
+    <AndroidAsset Include="Content\favicon.ico" />
+    <AndroidAsset Include="Content\File.spritefont" />
+    <AndroidAsset Include="Content\flamethrower.wav" />
+    <AndroidAsset Include="Content\health_collected.wav" />
+    <AndroidAsset Include="Content\intro_1.png" />
+    <AndroidAsset Include="Content\intro_2.png" />
+    <AndroidAsset Include="Content\intro_3.png" />
+    <AndroidAsset Include="Content\intro_4.png" />
+    <AndroidAsset Include="Content\menu.mp3" />
+    <AndroidAsset Include="Content\music_lose.wav" />
+    <AndroidAsset Include="Content\player_hit.wav" />
+    <AndroidAsset Include="Content\player_shoots.wav" />
+    <AndroidAsset Include="Content\room-0.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\room-1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\room-2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\room-3.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\room-4.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\room-5.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\room-6.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\room-7.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\room-8.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\room-9.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
     <AndroidAsset Include="Content\ui.png" />
+    <AndroidAsset Include="Content\weapon_switch.wav" />
+    <AndroidAsset Include="Content\win_collected.wav" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.2.1105" />
@@ -22,38 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpaceBlaster\SpaceBlaster.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Content\room-0.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\room-1.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\room-2.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\room-3.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\room-4.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\room-5.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\room-6.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\room-7.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\room-8.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Content\room-9.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />

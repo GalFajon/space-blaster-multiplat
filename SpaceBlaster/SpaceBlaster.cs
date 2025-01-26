@@ -88,6 +88,11 @@ namespace SpaceBlaster
             this.CurrentScene = level;
         }
 
+        public void InitializeCredits()
+        {
+            var credits = new CreditsScreen(this);
+            this.CurrentScene = credits;
+        }
 
         public void InitializeSettings()
         {

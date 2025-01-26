@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 namespace GameSpecific;
 
+using System;
 using GameEngine.Gameplay.Audio;
 using GameEngine.Scene.Components;
 using GameEngine.Scene.UI;
@@ -53,9 +54,24 @@ public class TitleScreen : GameEngine.Scene.Scene
 
         this._components.Add(settings);
 
-        Button quit = new Button(
+        Button credits = new Button(
             SpaceBlasterGame.VirtualResolutionWidth / 2 - 8 * 3 - 16 * 5,
             SpaceBlasterGame.VirtualResolutionHeight / 2 + 16 * 8,
+            new Label(32, 20, "Credits", Color.White, this, null),
+            this,
+            null
+        );
+
+        credits.clickHandler = delegate ()
+        {
+            this._game.InitializeCredits();
+        };
+
+        this._components.Add(credits);
+
+        Button quit = new Button(
+            SpaceBlasterGame.VirtualResolutionWidth / 2 - 8 * 3 - 16 * 5,
+            SpaceBlasterGame.VirtualResolutionHeight / 2 + 16 * 16,
             new Label(32, 20, "Quit", Color.White, this, null),
             this,
             null
@@ -67,6 +83,15 @@ public class TitleScreen : GameEngine.Scene.Scene
         };
 
         this._components.Add(quit);
+
+        if (OperatingSystem.IsWindows())
+        {
+            this._components.Add(new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 280, SpaceBlasterGame.VirtualResolutionHeight / 2 + 16 * 24, "HOW TO PLAY: [WASD] move,\n[click] shoot, [E] switch weapon", Color.White, this, null));
+        }
+        else if (OperatingSystem.IsAndroid())
+        {
+            this._components.Add(new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 280, SpaceBlasterGame.VirtualResolutionHeight / 2 + 16 * 24, "HOW TO PLAY: [left side of screen] move,\n[right side of screen] aim & shoot,\n[S button] switch weapon", Color.White, this, null));
+        }
 
         if (MusicManager.getCurrentSongKey() != "title_screen") MusicManager.play("title_screen");
     }

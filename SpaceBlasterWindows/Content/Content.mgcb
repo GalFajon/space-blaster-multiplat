@@ -97,6 +97,9 @@
 /processorParam:Quality=Best
 /build:explosion.wav
 
+#begin favicon.ico
+/copy:favicon.ico
+
 #begin File.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

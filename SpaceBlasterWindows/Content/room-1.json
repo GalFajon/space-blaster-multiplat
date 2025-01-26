@@ -2,17 +2,10 @@
     "Goal": "kill_enemies",
     "Objects": [
         {
-            "Type": "soldier_shotgun",
+            "Type": "zombie",
             "Coordinates": [
                 5,
                 5
-            ]
-        },
-        {
-            "Type": "zombie",
-            "Coordinates": [
-                7,
-                6
             ]
         },
         {

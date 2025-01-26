@@ -19,6 +19,7 @@ public class LevelGenerator
 
     static LevelGeneratorDir _currentDir = LevelGeneratorDir.UP;
     static LevelGeneratorDir _prevDir = LevelGeneratorDir.RIGHT;
+
     public static Room getRandomRoom(Level scene)
     {
         int i = RandomNumber.GetRandomNumber(0, RoomLayouts.maxRoom);

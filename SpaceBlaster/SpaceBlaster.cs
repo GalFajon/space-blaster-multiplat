@@ -66,6 +66,8 @@ namespace SpaceBlaster
 
             MusicManager.setVolume(Settings.MusicVolume / 10f);
             SoundEffectsManager.setVolume(Settings.MusicVolume / 10f);
+            
+            this.IsMouseVisible = false;
 
             this.InitializeTitleScreen();
         }

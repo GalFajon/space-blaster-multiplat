@@ -5,6 +5,7 @@ using SpaceBlaster;
 using GameEngine.Scene.UI;
 using GameEngine.Scene.Components;
 using GameEngine.Gameplay.Audio;
+using System;
 
 public class CreditsScreen : GameEngine.Scene.Scene
 {
@@ -12,6 +13,12 @@ public class CreditsScreen : GameEngine.Scene.Scene
 
     public CreditsScreen(SpaceBlaster.SpaceBlasterGame game) : base(game)
     {
+        if (OperatingSystem.IsWindows())
+        {
+            Cursor c = new Cursor(0, 0, this, null);
+            this.Spawn(c);
+        }
+
         //SpaceBlasterGame.Settings.Save();
         _game = game;
 

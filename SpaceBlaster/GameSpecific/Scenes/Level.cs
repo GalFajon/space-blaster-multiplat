@@ -46,6 +46,12 @@ public class Level : GameEngine.Scene.Scene
 
     public void InitializeUI()
     {
+        if (OperatingSystem.IsWindows())
+        {
+            Cursor c = new Cursor(0, 0, this, null);
+            this.Spawn(c);
+        }
+
         UIPanel uiPanel = new UIPanel(0,0, this);
         this.Spawn(uiPanel);
 
@@ -79,7 +85,7 @@ public class Level : GameEngine.Scene.Scene
         var bg = new LevelBackground(0, 0, this, Camera);
         Components.Add(bg);
 
-        Components.AddRange(LevelGenerator.LevelGenerator.Generate(6, this));
+        Components.AddRange(LevelGenerator.LevelGenerator.Generate(4, this));
         Components.Add(_player);
 
         MusicManager.play("gameplay");

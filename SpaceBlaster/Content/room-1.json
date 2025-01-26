@@ -9,13 +9,6 @@
             ]
         },
         {
-            "Type": "zombie",
-            "Coordinates": [
-                7,
-                6
-            ]
-        },
-        {
             "Type": "coverwall",
             "Coordinates": [
                 4,

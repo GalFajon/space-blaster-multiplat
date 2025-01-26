@@ -19,6 +19,12 @@ public class TitleScreen : GameEngine.Scene.Scene
         bg.AnimationPlayer.SetCurrentAnimation(1);
         _components.Add(bg);
 
+        if (OperatingSystem.IsWindows())
+        {
+            Cursor c = new Cursor(0, 0, this, null);
+            this.Spawn(c);
+        }
+
         this.Camera = new Camera(0, 0, this, null);
         this._components.Add(new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 100, 100, "High Score: " + SpaceBlasterGame.Settings.HighScore, Color.White, this, null));
 

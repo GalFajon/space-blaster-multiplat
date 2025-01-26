@@ -37,7 +37,7 @@ public class Player : Physics, IAnimatable, IInputHandler
                 var e = new Explosion(this.Pos.X - this.Rect.Center.X, this.Pos.Y - this.Rect.Center.Y, this.scene);
                 this.scene.Spawn(e);
                 
-                this.shootMarker2.Destroy();
+                if (OperatingSystem.IsAndroid()) this.shootMarker2.Destroy();
 
                 Button restart = new Button(
                     SpaceBlasterGame.VirtualResolutionWidth / 2 - 8 * 3 - 16 * 3,
@@ -144,6 +144,8 @@ public class Player : Physics, IAnimatable, IInputHandler
     {
         if (whichWeapon) currentWeapon.stats = primaryWeapon;
         else currentWeapon.stats = secondaryWeapon;
+
+        currentWeapon.UpdateStats();
 
         whichWeapon = !whichWeapon;
     }

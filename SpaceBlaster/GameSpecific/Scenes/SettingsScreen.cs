@@ -5,6 +5,7 @@ using SpaceBlaster;
 using GameEngine.Scene.UI;
 using GameEngine.Scene.Components;
 using GameEngine.Gameplay.Audio;
+using System;
 
 public class SettingsScreen : GameEngine.Scene.Scene
 {
@@ -22,6 +23,12 @@ public class SettingsScreen : GameEngine.Scene.Scene
         var bg = new Background(0, 0, this);
         bg.AnimationPlayer.SetCurrentAnimation(2);
         _components.Add(bg);
+
+        if (OperatingSystem.IsWindows())
+        {
+            Cursor c = new Cursor(0, 0, this, null);
+            _components.Add(c);
+        }
 
         this.Camera = new Camera(0, 0, this, null);
 

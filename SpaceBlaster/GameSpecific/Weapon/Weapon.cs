@@ -62,6 +62,7 @@ public class Weapon : Position, IArtificialIntelligence, IAnimatable
     public AnimationPlayer AnimationPlayer { get; set; }
     public Vector2 Direction = new Vector2(0, 0);
     private double CurrentTimer = 0;
+    private double CurrentSFXTimer = 0;
     public bool CanShoot = true;
     private Random rand = new Random();
     public WeaponStats stats;
@@ -91,7 +92,7 @@ public class Weapon : Position, IArtificialIntelligence, IAnimatable
             wstats.ProjectileCount,
             false,
             (float)wstats.FireRate,
-            300,
+            400,
             1,
             0,
             1f,
@@ -123,12 +124,12 @@ public class Weapon : Position, IArtificialIntelligence, IAnimatable
         }
         else if (this.stats.type == WeaponType.FLAMETHROWER)
         {
-            CurrentTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            CurrentSFXTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (shooting && CurrentTimer > stats.FireRate)
+            if (shooting && CurrentSFXTimer > stats.FireRate)
             {
                 SoundEffectsManager.Play(this,"flamethrower");
-                CurrentTimer = 0;
+                CurrentSFXTimer = 0;
             }
 
             flames.dir = this.Direction;
@@ -138,6 +139,18 @@ public class Weapon : Position, IArtificialIntelligence, IAnimatable
             flames.emit = shooting;
             damageArea.active = shooting;
         }
+    }
+
+    public void UpdateStats()
+    {
+        damageArea.Damage = this.stats.Damage;
+        flames.spread = this.stats.Spread;
+        flames.maxSpeed = this.stats.ProjectileSpeed;
+        flames.minSpeed = this.stats.ProjectileSpeed / 2;
+        flames.spawnInterval = this.stats.FireRate;
+        flames.howMany = this.stats.ProjectileCount;
+        flames.emit = false;
+        shooting = false;
     }
 
     public void Aim(Vector2 dir)

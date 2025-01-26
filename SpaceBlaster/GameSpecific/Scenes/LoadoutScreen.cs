@@ -5,6 +5,7 @@ using SpaceBlaster;
 using GameEngine.Scene.UI;
 using GameEngine.Scene.Components;
 using GameEngine.Gameplay.Audio;
+using System;
 
 public class LoadoutScreen : GameEngine.Scene.Scene
 {
@@ -24,6 +25,12 @@ public class LoadoutScreen : GameEngine.Scene.Scene
         var bg = new Background(0, 0, this);
         bg.AnimationPlayer.SetCurrentAnimation(2);
         _components.Add(bg);
+
+        if (OperatingSystem.IsWindows())
+        {
+            Cursor c = new Cursor(0, 0, this, null);
+            _components.Add(c);
+        }
 
         //SpaceBlasterGame.Settings.Save();
         _game = game;

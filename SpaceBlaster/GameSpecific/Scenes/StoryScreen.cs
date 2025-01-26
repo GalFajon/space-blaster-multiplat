@@ -3,6 +3,8 @@ using GameEngine.Scene.Components;
 using GameEngine.Scene.UI;
 using SpaceBlaster;
 using Microsoft.Xna.Framework;
+using GameSpecific;
+using System;
 
 //         this._components.Add(new IntroStoryBook(0,0,this));
 
@@ -17,6 +19,12 @@ public class StoryScreen : GameEngine.Scene.Scene
         var bg = new Background(0, 0, this);
         bg.AnimationPlayer.SetCurrentAnimation(0);
         _components.Add(bg);
+
+        if (OperatingSystem.IsWindows())
+        {
+            Cursor c = new Cursor(0, 0, this, null);
+            this.Spawn(c);
+        }
 
         this.Camera = new Camera(0, 0, this, null);
         var storybook = new IntroStoryBook(SpaceBlasterGame.VirtualResolutionWidth / 2 - 64 * 5, SpaceBlasterGame.VirtualResolutionHeight / 2 - 64 * 5, this);

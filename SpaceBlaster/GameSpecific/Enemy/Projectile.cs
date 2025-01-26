@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 namespace GameSpecific;
 
 using System.Collections.Generic;
+using GameEngine.Gameplay.Audio;
 using GameEngine.Graphics;
 using GameEngine.Scene;
 using GameEngine.Scene.Components;
@@ -29,6 +30,10 @@ public class Projectile : Physics, IAnimatable
 
     public override void HandleCollision(Collider collider)
     {
-        if ((collider is Player) || (collider is Wall)) this.Destroy();
+        if ((collider is Player) || (collider is Wall))
+        {
+            if (collider is Player) SoundEffectsManager.Play(this, "player_hit");
+            this.Destroy();
+        }
     }
 }

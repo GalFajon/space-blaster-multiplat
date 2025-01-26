@@ -93,6 +93,7 @@ public class UIRenderer : DrawableGameComponent
 
                 if (item is IUIAnimatable a)
                 {
+                    a.AnimationPlayer.Update(gameTime);
                     asprite = a.AnimationPlayer.GetCurrentSprite();
                 }
 

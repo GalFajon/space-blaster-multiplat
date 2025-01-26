@@ -14,6 +14,8 @@ public class Level : GameEngine.Scene.Scene
     private Label roomLabel = null;
     private Label currencyLabel = null;
     private Label weaponLabel = null;
+    private UIPanel uiPanel = null;
+
     public Player _player = null;
 
     public SpaceBlaster.SpaceBlasterGame _game = null;
@@ -44,6 +46,9 @@ public class Level : GameEngine.Scene.Scene
 
     public void InitializeUI()
     {
+        UIPanel uiPanel = new UIPanel(0,0, this);
+        this.Spawn(uiPanel);
+
         roomLabel = new Label(20, 20, "Rooms cleared: " + _game.roomsCleared.ToString(), Color.White, this, null);
         this.Spawn(roomLabel);
 
@@ -70,6 +75,9 @@ public class Level : GameEngine.Scene.Scene
         Camera = new Camera(-((float)SpaceBlasterGame.VirtualResolutionWidth / (SpaceBlasterGame.Settings.CameraZoom * 2)), -((float)SpaceBlasterGame.VirtualResolutionHeight / (SpaceBlasterGame.Settings.CameraZoom * 2)), this, _player);
         Camera.ScaleX = Camera.ScaleX * SpaceBlasterGame.Settings.CameraZoom;
         Camera.ScaleY = Camera.ScaleY * SpaceBlasterGame.Settings.CameraZoom;
+
+        var bg = new LevelBackground(0, 0, this, Camera);
+        Components.Add(bg);
 
         Components.AddRange(LevelGenerator.LevelGenerator.Generate(6, this));
         Components.Add(_player);

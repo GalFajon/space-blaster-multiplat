@@ -27,7 +27,7 @@ public class AudioHandler : GameComponent
             var t = SoundEffectsManager.SoundQueue.Dequeue();
 
             if (t.Item1 is Position p) if (_game.Renderer.IsOnScreen(p.Pos, 0, 0)) t.Item2.Play();
-                else if (t.Item1 == null) t.Item2.Play();
+            else if (t.Item1 == null) t.Item2.Play();
         }
 
         base.Update(gameTime);

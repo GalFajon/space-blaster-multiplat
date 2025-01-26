@@ -34,6 +34,11 @@ public class MusicManager
         return songs[currentSong];
     }
 
+    public static string getCurrentSongKey()
+    {
+        return currentSong;
+    }
+
     public static void play(string song)
     {
         currentSong = song;

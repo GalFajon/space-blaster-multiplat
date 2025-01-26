@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 namespace GameSpecific;
 
 using System.Collections.Generic;
+using GameEngine.Gameplay.Audio;
 using GameEngine.Graphics;
 using GameEngine.Scene;
 using GameEngine.Scene.Components;
@@ -30,7 +31,11 @@ public class PlayerProjectile : Physics, IAnimatable
 
     public override void HandleCollision(Collider collider)
     {
-        if (collider is not Player && collider is not PlayerProjectile && collider is not Projectile && collider is not CoverWall && collider is not Currency && collider is not DamageArea) this.Destroy();
+        if (collider is not Player && collider is not PlayerProjectile && collider is not Projectile && collider is not CoverWall && collider is not Currency && collider is not DamageArea)
+        {
+            if (collider is Enemy) SoundEffectsManager.Play(this, "enemy_hit");
+            this.Destroy();
+        }
         else return;
     }
 }

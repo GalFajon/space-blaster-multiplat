@@ -12,36 +12,13 @@ public class TitleScreen : GameEngine.Scene.Scene
 
     public TitleScreen(SpaceBlaster.SpaceBlasterGame game) : base(game)
     {
-        //SpaceBlasterGame.Settings.Save();
         _game = game;
 
-        /*this._components.Add(
-            new ParticleEmitter(
-                SpaceBlasterGame.VirtualResolutionWidth / 2 - 300,
-                SpaceBlasterGame.VirtualResolutionHeight / 2 - 300,
-                new GameEngine.Graphics.Sprite(SpaceBlasterGame.TextureAtlas, new Rectangle(21,132,6,6) ,new Vector2(0,0), 3),
-                new Vector2(1,0),
-                0.5f,
-                100,
-                150,
-                1,
-                false,
-                150,
-                500,
-                1,
-                0,
-                1f,
-                3f,
-                Color.Red,
-                Color.Orange,
-                this,
-                null
-            )
-        );*/
+        var bg = new Background(0, 0, this);
+        bg.AnimationPlayer.SetCurrentAnimation(1);
+        _components.Add(bg);
 
         this.Camera = new Camera(0, 0, this, null);
-
-        this._components.Add(new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 100, 50, "Space blaster", Color.White, this, null));
         this._components.Add(new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 100, 100, "High Score: " + SpaceBlasterGame.Settings.HighScore, Color.White, this, null));
 
         Button play = new Button(
@@ -56,7 +33,9 @@ public class TitleScreen : GameEngine.Scene.Scene
 
         play.clickHandler = delegate ()
         {
-            this._game.InitializeLoadoutScreen();
+            this._game.InitializeStoryScreen();
+
+            //this._game.InitializeLoadoutScreen();
         };
 
         Button settings = new Button(
@@ -89,7 +68,7 @@ public class TitleScreen : GameEngine.Scene.Scene
 
         this._components.Add(quit);
 
-        MusicManager.play("title_screen");
+        if (MusicManager.getCurrentSongKey() != "title_screen") MusicManager.play("title_screen");
     }
 
     public void Start()

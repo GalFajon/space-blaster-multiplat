@@ -47,7 +47,7 @@ public struct PremadeWeapons
     public static WeaponStats Pistol = new WeaponStats(1, 1, 0.0f, 600, 600, "Pistol", WeaponType.GUN, SpaceBlasterGame.Settings.PistolUnlocked, 0);
     public static WeaponStats SubMachineGun = new WeaponStats(1, 0.4f, 0.30f, 200, 400, "SMG", WeaponType.GUN, SpaceBlasterGame.Settings.SubMachineGunUnlocked, 300);
     public static WeaponStats Shotgun = new WeaponStats(3, 0.5f, 0.4f, 500, 500, "Shotgun", WeaponType.GUN, SpaceBlasterGame.Settings.ShotgunUnlocked, 0);
-    public static WeaponStats MachineGun = new WeaponStats(1, 1, 0.3f, 250, 600, "Machine gun", WeaponType.GUN, SpaceBlasterGame.Settings.MachineGunUnlocked, 300);
+    public static WeaponStats MachineGun = new WeaponStats(1, 0.3f, 0.3f, 250, 600, "Machine gun", WeaponType.GUN, SpaceBlasterGame.Settings.MachineGunUnlocked, 300);
     //public static WeaponStats FlameThrower = new WeaponStats(1, 1, 0.3f, 250, 600, "FlameThrower", WeaponType.FLAMETHROWER, SpaceBlasterGame.Settings.MachineGunUnlocked, 300);
     public static WeaponStats FlameThrower = new WeaponStats(3, 0.5f, 0.5f, 100, 500, "Flamethrower", WeaponType.FLAMETHROWER, SpaceBlasterGame.Settings.FlameThrowerUnlocked, 1000);
 
@@ -123,6 +123,14 @@ public class Weapon : Position, IArtificialIntelligence, IAnimatable
         }
         else if (this.stats.type == WeaponType.FLAMETHROWER)
         {
+            CurrentTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            if (shooting && CurrentTimer > stats.FireRate)
+            {
+                SoundEffectsManager.Play(this,"flamethrower");
+                CurrentTimer = 0;
+            }
+
             flames.dir = this.Direction;
 
             if (shooting) damageArea.Pos = (new Vector2(-48, -48)) + flames.dir * 48 * 1.5f;

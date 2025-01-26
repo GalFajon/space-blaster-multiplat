@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameEngine.Gameplay.Audio;
 using GameEngine.Graphics;
 using GameEngine.Scene;
 using GameEngine.Scene.Components;
@@ -13,8 +14,8 @@ public class Door : Collider, IAnimatable
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(52, 133), 1, 0.2, 16, 16, 3, 0f, new Vector2(0, 0)) },
-                { 1, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(70, 133), 1, 0.2, 16, 16, 3, 0f, new Vector2(0, 0)) }
+                { 1, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(140, 34), 1, 0.2, 16, 16, 3, 0.1f, new Vector2(0, 0)) },
+                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(0, 134), 1, 0.2, 16, 16, 3, 0f, new Vector2(0, 0)) }
             }
         );
 
@@ -28,6 +29,7 @@ public class Door : Collider, IAnimatable
     {
         this.Enabled = false;
         this.AnimationPlayer.SetCurrentAnimation(1);
+        SoundEffectsManager.Play(this, "door_open");
     }
 
     public void Close()

@@ -29,7 +29,7 @@ public class Win : Collider, IAnimatable
     {
         if (collided is Player)
         {
-            SoundEffectsManager.Play(this, "win_collected");
+            SoundEffectsManager.Play(null, "win_collected");
 
             if (this.scene is GameSpecific.Level l) l.Win();
             this.Destroy();

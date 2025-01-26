@@ -1,3 +1,4 @@
+using System;
 using GameEngine.Scene;
 using GameEngine.Scene.Components;
 using GameEngine.Scene.UI;
@@ -13,6 +14,7 @@ public class WeaponLabel : Label, IArtificialIntelligence
 
     public virtual void HandleAI(GameTime gameTime)
     {
-        this.Text = "Weapon: " + ((Level)this.scene)._player.currentWeapon.stats.DisplayName;
+        if (OperatingSystem.IsAndroid()) this.Text = "Weapon: " + ((Level)this.scene)._player.currentWeapon.stats.DisplayName;
+        else this.Text = "Weapon: " + ((Level)this.scene)._player.currentWeapon.stats.DisplayName + " [E]";
     }
 }

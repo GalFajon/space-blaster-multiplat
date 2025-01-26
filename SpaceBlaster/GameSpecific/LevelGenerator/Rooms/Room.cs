@@ -145,6 +145,22 @@ public class Room : Position
                     else
                     {
                         Wall w = new Wall(0, 0, this.scene, this);
+
+                        if ((j == Rows / 2 - 1) && i == Columns && RightDoor) w.AnimationPlayer.SetCurrentAnimation(8);
+                        else if ((j == Rows / 2 + 1) && i == Columns && RightDoor) w.AnimationPlayer.SetCurrentAnimation(7);
+                        else if ((i == Columns / 2 - 1) && j == 0 && TopDoor) w.AnimationPlayer.SetCurrentAnimation(10);
+                        else if ((i == Columns / 2 + 1) && j == 0 && TopDoor) w.AnimationPlayer.SetCurrentAnimation(9);
+                        else if ((i == Columns / 2 - 1) && j == Rows && BottomDoor) w.AnimationPlayer.SetCurrentAnimation(10);
+                        else if ((i == Columns / 2 + 1) && j == Rows && BottomDoor) w.AnimationPlayer.SetCurrentAnimation(9);
+                        else if ((j == Rows / 2 - 1) && i == 0 && LeftDoor) w.AnimationPlayer.SetCurrentAnimation(8);
+                        else if ((j == Rows / 2 + 1) && i == 0 && LeftDoor) w.AnimationPlayer.SetCurrentAnimation(7);
+                        else if (i == Columns && j == Rows) w.AnimationPlayer.SetCurrentAnimation(6);
+                        else if (i == 0 && j == Rows) w.AnimationPlayer.SetCurrentAnimation(5);
+                        else if (i == 0 && j == 0) w.AnimationPlayer.SetCurrentAnimation(3);
+                        else if (i == Columns && j == 0) w.AnimationPlayer.SetCurrentAnimation(4);
+                        else if (i == 0 || i == Columns) w.AnimationPlayer.SetCurrentAnimation(2);
+                        else w.AnimationPlayer.SetCurrentAnimation(1);
+
                         w.Parent = this;
                         addToGrid(i, j, w);
                     }
@@ -157,6 +173,9 @@ public class Room : Position
         {
             EntranceDoor entrance = new EntranceDoor(0, 0, this, this.scene, this);
             addToGrid(Columns / 2, 0, entrance);
+
+            //if (getGrid(Columns / 2 - 1, 0) is Wall w) w.AnimationPlayer.SetCurrentAnimation(10);
+            //if (getGrid(Columns / 2 + 1, 0) is Wall w2) w2.AnimationPlayer.SetCurrentAnimation(9);
         }
         ;
 
@@ -164,6 +183,9 @@ public class Room : Position
         {
             EntranceDoor entrance = new EntranceDoor(0, 0, this, this.scene, this);
             addToGrid(Columns / 2, Rows, entrance);
+
+            //if (getGrid(Columns / 2 - 1, Rows) is Wall w) w.AnimationPlayer.SetCurrentAnimation(10);
+            //if (getGrid(Columns / 2 + 1, Rows) is Wall w2) w2.AnimationPlayer.SetCurrentAnimation(9);
         }
         ;
 
@@ -171,6 +193,9 @@ public class Room : Position
         {
             EntranceDoor entrance = new EntranceDoor(0, 0, this, this.scene, this);
             addToGrid(0, Rows / 2, entrance);
+
+            //if (getGrid(0, Rows / 2 - 1) is Wall w) w.AnimationPlayer.SetCurrentAnimation(8);
+            //if (getGrid(0, Rows / 2 + 1) is Wall w2) w2.AnimationPlayer.SetCurrentAnimation(7);
         }
         ;
     }

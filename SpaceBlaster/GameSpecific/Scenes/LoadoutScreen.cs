@@ -21,6 +21,10 @@ public class LoadoutScreen : GameEngine.Scene.Scene
 
     public LoadoutScreen(SpaceBlaster.SpaceBlasterGame game) : base(game)
     {
+        var bg = new Background(0, 0, this);
+        bg.AnimationPlayer.SetCurrentAnimation(2);
+        _components.Add(bg);
+
         //SpaceBlasterGame.Settings.Save();
         _game = game;
 
@@ -205,11 +209,12 @@ public class LoadoutScreen : GameEngine.Scene.Scene
         };
 
         this._components.Add(backToTitle);
-        MusicManager.play("title_screen");
 
         this.UpdateCurrencyLabel();
         this.updateCurrentWeaponLabel();
         this.updateCurrentSecondaryWeaponLabel();
+
+        if (MusicManager.getCurrentSongKey() != "title_screen") MusicManager.play("title_screen");
     }
 
     public void updateCurrentSecondaryWeaponLabel()

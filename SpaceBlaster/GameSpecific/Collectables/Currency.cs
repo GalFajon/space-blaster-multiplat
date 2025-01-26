@@ -16,7 +16,7 @@ public class Currency : Collider, IAnimatable
         this.value = value;
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
-                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(124, 52), 1, 0.2, 16, 16, 3, 0.05f, new Vector2(0, 0)) },
+                { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(53, 20), 1, 0.2, 10, 10, 3, 0.05f, new Vector2(0, 0)) },
             }
         );
 

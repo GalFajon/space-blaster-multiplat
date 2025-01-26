@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 namespace GameSpecific;
 
+using GameEngine.Gameplay.Audio;
 using GameEngine.Graphics;
 using GameEngine.Scene;
 using GameEngine.Scene.Components;

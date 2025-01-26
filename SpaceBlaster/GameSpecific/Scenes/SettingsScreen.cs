@@ -19,6 +19,10 @@ public class SettingsScreen : GameEngine.Scene.Scene
         //SpaceBlasterGame.Settings.Save();
         _game = game;
 
+        var bg = new Background(0, 0, this);
+        bg.AnimationPlayer.SetCurrentAnimation(2);
+        _components.Add(bg);
+
         this.Camera = new Camera(0, 0, this, null);
 
         this._components.Add(new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 100, 50, "Settings", Color.White, this, null));
@@ -128,7 +132,8 @@ public class SettingsScreen : GameEngine.Scene.Scene
         };
 
         this._components.Add(backToTitle);
-        MusicManager.play("title_screen");
+
+        if (MusicManager.getCurrentSongKey() != "title_screen") MusicManager.play("title_screen");
     }
 
     public void setCameraZoom(float v)

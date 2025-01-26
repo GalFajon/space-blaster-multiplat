@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using GameEngine.Gameplay.Input;
 using System;
+using GameEngine.Gameplay.Audio;
 namespace GameSpecific;
 
 public class Player : Physics, IAnimatable, IInputHandler
@@ -31,6 +32,7 @@ public class Player : Physics, IAnimatable, IInputHandler
             if (health <= 0)
             {
                 //this.Destroy();
+                MusicManager.play("lose");
 
                 var e = new Explosion(this.Pos.X - this.Rect.Center.X, this.Pos.Y - this.Rect.Center.Y, this.scene);
                 this.scene.Spawn(e);
@@ -104,7 +106,7 @@ public class Player : Physics, IAnimatable, IInputHandler
         this.scene.Spawn(healthBar);
         healthBar.SetState(BarState.HIGH);
 
-        currentWeapon = new Weapon(secondaryWeapon, 8 * 3, 8 * 3, this.scene, this);
+        currentWeapon = new Weapon(primaryWeapon, 8 * 3, 8 * 3, this.scene, this);
         this.scene.Spawn(currentWeapon);
 
         if (OperatingSystem.IsAndroid())
@@ -128,6 +130,7 @@ public class Player : Physics, IAnimatable, IInputHandler
             switchWeaponButton.Big = false;
             switchWeaponButton.clickHandler = () =>
             {
+                SoundEffectsManager.Play(this, "weapon_switch");
                 this.SwitchWeapon();
             };
 

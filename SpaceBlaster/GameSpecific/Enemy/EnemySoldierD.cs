@@ -2,10 +2,12 @@ using Microsoft.Xna.Framework;
 namespace GameSpecific;
 
 using System.Collections.Generic;
+using GameEngine.Gameplay.Audio;
 using GameEngine.Graphics;
 using GameEngine.Scene;
 using GameEngine.Scene.Components;
 using GameSpecific.LevelGenerator.Rooms;
+using Microsoft.Xna.Framework.Audio;
 
 public enum EnemySoldierState
 {

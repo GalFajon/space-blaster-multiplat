@@ -9,7 +9,7 @@ namespace GameSpecific;
 public class Wall : Collider, IAnimatable
 {
     public AnimationPlayer AnimationPlayer { get; set; }
-    public Wall(float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 36, 36), scene, parent)
+    public Wall(float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 34, 34), scene, parent)
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){

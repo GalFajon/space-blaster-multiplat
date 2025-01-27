@@ -25,7 +25,7 @@ public class RoomLayouts
 {
     public static int maxRoom = 10;
     public static ContentManager Content = null;
-    public static Stream stream; // SET ON PLATFOR
+    public static Stream stream;
 
     public static Func<int,Stream> GetStream { get; set; }
 
@@ -33,7 +33,6 @@ public class RoomLayouts
     {
         if (RoomLayouts.GetStream != null)
         {
-            // Game.Activity.Assets.Open("Content/room-" + i + ".json")
             var jsonRoom = JsonSerializer.Deserialize<JSONRoomLayout>((new StreamReader(GetStream(i)).ReadToEnd()));
             Dictionary<Vector2, Position> objects = new Dictionary<Vector2, Position>();
 

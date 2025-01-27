@@ -10,7 +10,6 @@ public enum LevelGeneratorDir
 {
     UP,
     DOWN,
-    //LEFT,
     RIGHT
 }
 

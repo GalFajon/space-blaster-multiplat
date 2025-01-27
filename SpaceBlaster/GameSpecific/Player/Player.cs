@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
 using SpaceBlaster;
 using System.Collections.Generic;
-using System.Diagnostics;
 using GameEngine.Gameplay.Input;
 using System;
 using GameEngine.Gameplay.Audio;
@@ -31,7 +30,6 @@ public class Player : Physics, IAnimatable, IInputHandler
 
             if (health <= 0)
             {
-                //this.Destroy();
                 MusicManager.play("lose");
 
                 var e = new Explosion(this.Pos.X - this.Rect.Center.X, this.Pos.Y - this.Rect.Center.Y, this.scene);
@@ -54,8 +52,6 @@ public class Player : Physics, IAnimatable, IInputHandler
 
                 this.scene.Spawn(restart);
                 this.Destroy();
-
-                //if (this.scene is GameSpecific.Level l) l.Lose();
             }
         }
     }
@@ -65,7 +61,6 @@ public class Player : Physics, IAnimatable, IInputHandler
     private Bar healthBar = new Bar(0, -20, null);
     private JoystickMarker moveMarker;
     private JoystickMarker shootMarker;
-    //private JoystickMarker moveMarker2;
     private JoystickMarker shootMarker2;
 
     public WeaponStats primaryWeapon = PremadeWeapons.Pistol;
@@ -81,7 +76,6 @@ public class Player : Physics, IAnimatable, IInputHandler
     private readonly double InvinicibilityTimer = 750;
     private bool invincible = false;
 
-    // Android controls
     Vector2 MovePivot = new Vector2(0, 0);
     Vector2 AimPivot = new Vector2(0, 0);
 
@@ -120,10 +114,6 @@ public class Player : Physics, IAnimatable, IInputHandler
             this.scene.Spawn(shootMarker);
             this.shootMarker.AnimationPlayer.SetCurrentAnimation(1);
 
-            //this.moveMarker2 = new JoystickMarker(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32, this.scene, null);
-            //this.scene.Spawn(moveMarker2);
-            //this.moveMarker2.AnimationPlayer.SetCurrentAnimation(2);
-
             this.shootMarker2 = new JoystickMarker(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32, this.scene, null);
             this.scene.Spawn(shootMarker2);
             this.shootMarker2.AnimationPlayer.SetCurrentAnimation(3);
@@ -150,7 +140,6 @@ public class Player : Physics, IAnimatable, IInputHandler
         whichWeapon = !whichWeapon;
     }
 
-    // this could just take the direction vector, no need for bools
     public void Move(bool left, bool up, bool down, bool right)
     {
         Vector2 dir = new Vector2(0, 0);
@@ -260,10 +249,8 @@ public class Player : Physics, IAnimatable, IInputHandler
                                 moveDir.Normalize();
                                 if (moveDir.X != 0 && moveDir.Y != 0)
                                 {
-                                    //this.moveMarker2.Pos = new Vector2(SpaceBlasterGame.VirtualResolutionWidth / 2 + 32, SpaceBlasterGame.VirtualResolutionHeight / 2 + 32) + Vector2.One * moveDir * 64;
                                     this.Move(moveDir);
                                     this.moveMarker.Aim(moveDir);
-                                    //this.moveMarker2.Aim(moveDir);
                                 }
                             }
                         }

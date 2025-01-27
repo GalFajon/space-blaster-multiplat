@@ -1,7 +1,4 @@
-using System;
 using Microsoft.Xna.Framework;
-using GameEngine.Scene;
-using GameEngine;
 using GameEngine.Scene.Components;
 
 namespace GameEngine.Gameplay.Collision;

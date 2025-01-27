@@ -6,8 +6,6 @@ using Microsoft.Xna.Framework;
 using GameSpecific;
 using System;
 
-//         this._components.Add(new IntroStoryBook(0,0,this));
-
 public class StoryScreen : GameEngine.Scene.Scene
 {
     private SpaceBlaster.SpaceBlasterGame _game = null;

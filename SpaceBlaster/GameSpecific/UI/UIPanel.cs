@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using GameEngine.Scene.Components;
 using GameEngine.Graphics;
 using GameEngine.Scene;
-using GameEngine.Gameplay.Audio;
 
 public class UIPanel : Position, IUIAnimatable
 {

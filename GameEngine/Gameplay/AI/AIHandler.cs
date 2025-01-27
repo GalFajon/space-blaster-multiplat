@@ -1,9 +1,4 @@
-using System;
-using System.Diagnostics;
-using GameSpecific;
 using Microsoft.Xna.Framework;
-using GameEngine.Scene;
-using GameEngine;
 using GameEngine.Scene.Components;
 
 namespace GameEngine.Gameplay.AI;
@@ -24,11 +19,7 @@ public class AIHandler : GameComponent
         {
             if (item is IArtificialIntelligence a)
             {
-                if (item is Position p)
-                {
-                    //if (_game.isOnScreen(p.Pos))
-                    a.HandleAI(gameTime);
-                }
+                if (item is Position p) a.HandleAI(gameTime);
                 else a.HandleAI(gameTime);
             }
         }

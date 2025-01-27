@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GameEngine.Scene.Components;
 using SpaceBlaster;
-using System.Diagnostics;
 
 namespace GameEngine.Graphics;
 

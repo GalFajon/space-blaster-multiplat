@@ -17,7 +17,6 @@ public class SettingsScreen : GameEngine.Scene.Scene
 
     public SettingsScreen(SpaceBlaster.SpaceBlasterGame game) : base(game)
     {
-        //SpaceBlasterGame.Settings.Save();
         _game = game;
 
         var bg = new Background(0, 0, this);
@@ -34,7 +33,6 @@ public class SettingsScreen : GameEngine.Scene.Scene
 
         this._components.Add(new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 100, 50, "Settings", Color.White, this, null));
 
-        // MUSIC VOLUME
         Button lowerVolume = new Button(
             SpaceBlasterGame.VirtualResolutionWidth / 2 - 8 * 3 - 16 * 13,
             SpaceBlasterGame.VirtualResolutionHeight / 2 - 16 * 10,
@@ -64,7 +62,6 @@ public class SettingsScreen : GameEngine.Scene.Scene
 
         this._components.Add(higherVolume);
 
-        //SFX VOLUME
         Button lowerSfxVolume = new Button(
             SpaceBlasterGame.VirtualResolutionWidth / 2 - 8 * 3 - 16 * 13,
             SpaceBlasterGame.VirtualResolutionHeight / 2 - 16 * 2,
@@ -94,7 +91,6 @@ public class SettingsScreen : GameEngine.Scene.Scene
 
         this._components.Add(higherSfxVolume);
 
-        // CAMERA ZOOM
         Button lowerCameraZoom = new Button(
             SpaceBlasterGame.VirtualResolutionWidth / 2 - 8 * 3 - 16 * 13,
             SpaceBlasterGame.VirtualResolutionHeight / 2 - 8 * 3 + 16 * 8,
@@ -124,7 +120,6 @@ public class SettingsScreen : GameEngine.Scene.Scene
 
         this._components.Add(higherCameraZoom);
 
-        // BACK TO TITLE
         Button backToTitle = new Button(
             SpaceBlasterGame.VirtualResolutionWidth / 2 - 8 * 3 - 16 * 5,
             SpaceBlasterGame.VirtualResolutionHeight / 2 - 8 * 3 + 16 * 16,

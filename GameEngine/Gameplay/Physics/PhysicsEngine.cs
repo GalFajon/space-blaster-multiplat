@@ -1,8 +1,5 @@
 using Microsoft.Xna.Framework;
-using GameEngine.Scene;
-using GameSpecific;
 using GameEngine.Gameplay.Input;
-using GameEngine.Scene.Components;
 
 namespace GameEngine.Gameplay.Physics;
 

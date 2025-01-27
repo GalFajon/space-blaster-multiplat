@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using SpaceBlaster;
-using GameEngine;
 using GameEngine.Scene.Components;
 using GameEngine.Graphics;
 using GameEngine.Scene;

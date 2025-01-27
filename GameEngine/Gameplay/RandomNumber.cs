@@ -1,5 +1,4 @@
 using System;
-
 namespace GameEngine.Gameplay;
 
 static class RandomNumber

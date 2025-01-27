@@ -32,7 +32,6 @@ public class LoadoutScreen : GameEngine.Scene.Scene
             _components.Add(c);
         }
 
-        //SpaceBlasterGame.Settings.Save();
         _game = game;
 
         this.Camera = new Camera(0, 0, this, null);
@@ -113,7 +112,6 @@ public class LoadoutScreen : GameEngine.Scene.Scene
 
         this._components.Add(buyEquipButton);
 
-        // secondary weapon button
         this.currentSecondaryWeaponLabel = new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 150, SpaceBlasterGame.VirtualResolutionHeight / 2 - 8 * 3 - 16 * 5, "", Color.White, this, null);
         this._components.Add(currentSecondaryWeaponLabel);
 
@@ -183,7 +181,6 @@ public class LoadoutScreen : GameEngine.Scene.Scene
 
         this._components.Add(buyEquipSecondaryButton);
 
-        // PLAY
         Button play = new Button(
             SpaceBlasterGame.VirtualResolutionWidth / 2 - 8 * 3 - 16 * 5,
             SpaceBlasterGame.VirtualResolutionHeight / 2 - 8 * 3 + 16 * 9,
@@ -200,7 +197,6 @@ public class LoadoutScreen : GameEngine.Scene.Scene
 
         this._components.Add(play);
 
-        // BACK TO TITLE
         Button backToTitle = new Button(
             SpaceBlasterGame.VirtualResolutionWidth / 2 - 8 * 3 - 16 * 5,
             SpaceBlasterGame.VirtualResolutionHeight / 2 - 8 * 3 + 16 * 16,

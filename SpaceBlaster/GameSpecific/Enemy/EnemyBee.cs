@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using GameEngine.Scene.Components;
 using GameEngine.Graphics;
-using GameEngine.Scene;
 using GameEngine.Gameplay;
 using GameEngine.Gameplay.Audio;
 
@@ -53,8 +52,6 @@ public class EnemyBee : Enemy, IPathFollower, IAnimatable
                 if (Path.Count > 0) (this as IPathFollower).MoveAlongPath(gameTime);
                 else
                 {
-                    (this as IPathFollower).ClearMarkers();
-
                     Vector2 beePos = Room.getTile(this.Pos);
                     var goal = new Vector2(RandomNumber.GetRandomNumber(1, this.Room.Columns - 1), RandomNumber.GetRandomNumber(1, this.Room.Rows - 1));
                     var path = Pathfinding.BFS(beePos, goal, Room);
@@ -72,8 +69,6 @@ public class EnemyBee : Enemy, IPathFollower, IAnimatable
 
                         Path.Push(beePos);
                     }
-
-                    (this as IPathFollower).GenerateMarkers(this.scene);
                 }
 
                 if (CurrentTimer > ShootTimer)
@@ -95,7 +90,5 @@ public class EnemyBee : Enemy, IPathFollower, IAnimatable
     public override void HandleCollision(Collider collided)
     {
         if (collided is not Projectile) base.HandleCollision(collided);
-
-        if (this.Health <= 0) (this as IPathFollower).ClearMarkers();
     }
 }

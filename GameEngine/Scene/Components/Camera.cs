@@ -1,7 +1,5 @@
-using System.Xml.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SpaceBlaster;
 
 namespace GameEngine.Scene.Components;
 

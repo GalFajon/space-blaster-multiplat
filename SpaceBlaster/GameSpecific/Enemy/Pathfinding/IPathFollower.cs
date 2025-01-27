@@ -14,13 +14,13 @@ public interface IPathFollower
 
     public void ClearMarkers()
     {
-        //foreach (var marker in Markers) marker.Destroy();
-        //Markers.Clear();
+        foreach (var marker in Markers) marker.Destroy();
+        Markers.Clear();
     }
 
     public void GenerateMarkers(GameEngine.Scene.Scene scene)
     {
-        /*foreach (var marker in Markers) marker.Destroy();
+        foreach (var marker in Markers) marker.Destroy();
         Markers.Clear();
 
         foreach (var path in Path)
@@ -29,12 +29,11 @@ public interface IPathFollower
             var m = new Marker(p.X, p.Y, scene, null);
             Markers.Add(m);
             scene.Spawn(m);
-        }*/
+        }
     }
 
     public void MoveAlongPath(GameTime gameTime)
     {
-        // this is extremely hacky, rework the interface system ASAP
         if (Path.Count > 0 && this is Position positioned)
         {
             var p = Room.ToWorldPos((int)Path.Peek().X, (int)Path.Peek().Y);

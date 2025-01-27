@@ -15,15 +15,12 @@ public class UIRenderer : DrawableGameComponent
 {
 
     private SpriteBatch _spriteBatch;
-    private Dictionary<String, Sprite> _spriteBank = new Dictionary<string, Sprite>();
-    private InputManager _input;
     private GameBase _game;
     private SpriteFont _font = null;
 
     public UIRenderer(GameBase game, InputManager input) : base(game)
     {
         _game = game;
-        _input = input;
         _font = Game.Content.Load<SpriteFont>("File");
     }
 
@@ -54,7 +51,6 @@ public class UIRenderer : DrawableGameComponent
     {
         Matrix t = Matrix.CreateRotationZ(_game.CurrentScene.Camera.Rot) *
             Matrix.CreateScale(new Vector3(((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (float)GameBase.VirtualResolutionWidth), ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (float)GameBase.VirtualResolutionHeight), 1.0f));
-            //Matrix.CreateTranslation(-(SpaceBlasterGame.AspectRatioDifferenceWidth) / 2, 0,0);
 
         return t;
     }

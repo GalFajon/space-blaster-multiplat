@@ -17,7 +17,6 @@ public class DamageArea : Collider
 
     public override void HandleCollision(Collider collider)
     {
-        //base.HandleCollision(collider);
         if (destroyOnCollision) this.Destroy();
     }
 }

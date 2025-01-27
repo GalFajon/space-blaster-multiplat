@@ -2,12 +2,9 @@ using Microsoft.Xna.Framework;
 namespace GameSpecific;
 
 using System.Collections.Generic;
-using GameEngine.Gameplay.Audio;
 using GameEngine.Graphics;
-using GameEngine.Scene;
 using GameEngine.Scene.Components;
 using GameSpecific.LevelGenerator.Rooms;
-using Microsoft.Xna.Framework.Audio;
 
 public enum EnemySoldierState
 {
@@ -23,7 +20,6 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
 
     public EnemySoldierState currentState = EnemySoldierState.NOT_IN_COVER;
     private Dictionary<Vector2, Vector2> path = null;
-    private Vector2 worldPos = new Vector2(0, 0);
     private double CoverTimer = 0;
     private double OutOfCoverTimer = 1000;
     private double InCoverTimer = 500;
@@ -87,7 +83,6 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
                     this.AnimationPlayer.SetCurrentAnimation(0);
 
                     Path.Clear();
-                    (this as IPathFollower).ClearMarkers();
 
                     var goal = Pathfinding.BFSFindCoverWithLOS(soldierPos, playerPos, Room, l._player.Pos);
                     if (goal == soldierPos) goal = Pathfinding.BFSFindPlayerLOS(soldierPos, playerPos, Room, l._player.Pos);
@@ -110,7 +105,6 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
                         Path.Push(soldierPos);
                     }
 
-                    (this as IPathFollower).GenerateMarkers(this.scene);
                     this.currentState = EnemySoldierState.MOVING_TO_COVER;
                 }
                 else if (currentState == EnemySoldierState.MOVING_TO_COVER)
@@ -126,8 +120,6 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
                 else if (currentState == EnemySoldierState.FINISHED_MOVING)
                 {
                     this.AnimationPlayer.SetCurrentAnimation(0);
-
-                    (this as IPathFollower).ClearMarkers();
                 }
                 else if (currentState == EnemySoldierState.IN_COVER)
                 {
@@ -135,7 +127,6 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
 
                     this.CoverTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
 
-                    if (this.Markers.Count > 0) (this as IPathFollower).ClearMarkers();
                     if (this.CoverTimer > this.InCoverTimer)
                     {
                         this.CoverTimer = 0;
@@ -176,8 +167,6 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
                 this.IsHit = true;
                 this.CurStunTimer = 0;
             }
-
-            if (this.Health <= 0) (this as IPathFollower).ClearMarkers();
         }
     }
 }

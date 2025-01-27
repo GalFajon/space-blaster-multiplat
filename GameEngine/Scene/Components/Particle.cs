@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using GameEngine.Graphics;
 using GameEngine.Scene;
 using GameEngine.Scene.Components;

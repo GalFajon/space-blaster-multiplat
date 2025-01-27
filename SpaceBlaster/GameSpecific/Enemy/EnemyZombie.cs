@@ -78,8 +78,6 @@ public class EnemyZombie : Enemy, IPathFollower, IAnimatable
                     }
                     else
                     {
-                        (this as IPathFollower).ClearMarkers();
-
                         Vector2 zombPos = Room.getTile(this.Pos);
                         var goal = Pathfinding.BFSFindPlayerLOSAtDistance(zombPos, playerPos, this.Room, l._player.Pos, 200);
                         var path = Pathfinding.BFS(zombPos, goal, Room);
@@ -99,8 +97,6 @@ public class EnemyZombie : Enemy, IPathFollower, IAnimatable
 
                             Path.Push(zombPos);
                         }
-
-                        (this as IPathFollower).GenerateMarkers(this.scene);
                     }
                 }
             }
@@ -110,6 +106,5 @@ public class EnemyZombie : Enemy, IPathFollower, IAnimatable
     public override void HandleCollision(Collider collided)
     {
         if (collided is not Projectile) base.HandleCollision(collided);
-        if (this.Health <= 0) (this as IPathFollower).ClearMarkers();
     }
 }

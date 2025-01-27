@@ -1,22 +1,12 @@
-/*
-    Takes concrete inputs on a device and transforms them into "states" relevant to the game
-*/
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
-using GameEngine.Scene;
-using GameSpecific;
-using GameEngine;
-using System.Diagnostics;
-using Microsoft.Xna.Framework.Audio;
 using GameEngine.Scene.Components;
 
 namespace GameEngine.Gameplay.Input;
 
 public class InputManager : GameComponent
 {
-    // inputs
     public static Vector2 MousePosWorld = Vector2.Zero;
     public static Vector2 MousePosUI = Vector2.Zero;
 

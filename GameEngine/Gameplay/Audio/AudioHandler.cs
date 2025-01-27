@@ -1,9 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
-using GameEngine.Scene;
-using GameEngine;
 using Microsoft.Xna.Framework.Media;
-using System.Diagnostics;
 using GameEngine.Scene.Components;
 
 namespace GameEngine.Gameplay.Audio;

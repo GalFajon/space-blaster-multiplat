@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-
 namespace GameEngine.Scene.Components;
 
 public abstract class Collider : Position

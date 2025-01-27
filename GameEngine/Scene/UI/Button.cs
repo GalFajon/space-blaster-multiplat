@@ -3,9 +3,6 @@ using GameEngine.Scene.Components;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
-using SpaceBlaster;
-using System.Diagnostics;
-using System.Xml.Linq;
 using GameEngine.Graphics;
 using System;
 

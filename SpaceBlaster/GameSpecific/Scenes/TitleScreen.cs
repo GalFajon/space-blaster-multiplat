@@ -41,8 +41,6 @@ public class TitleScreen : GameEngine.Scene.Scene
         play.clickHandler = delegate ()
         {
             this._game.InitializeStoryScreen();
-
-            //this._game.InitializeLoadoutScreen();
         };
 
         Button settings = new Button(
@@ -96,7 +94,7 @@ public class TitleScreen : GameEngine.Scene.Scene
         }
         else if (OperatingSystem.IsAndroid())
         {
-            this._components.Add(new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 280, SpaceBlasterGame.VirtualResolutionHeight / 2 + 16 * 24, "HOW TO PLAY: [left side of screen] move,\n[right side of screen] aim & shoot,\n[S button] switch weapon", Color.White, this, null));
+            this._components.Add(new Label(SpaceBlasterGame.VirtualResolutionWidth / 2 - 280, SpaceBlasterGame.VirtualResolutionHeight / 2 + 16 * 24, "HOW TO PLAY: [left side] move, [right side]\naim & shoot, [S button] switch weapon", Color.White, this, null));
         }
 
         if (MusicManager.getCurrentSongKey() != "title_screen") MusicManager.play("title_screen");

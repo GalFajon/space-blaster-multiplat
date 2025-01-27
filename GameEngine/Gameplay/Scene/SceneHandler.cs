@@ -1,6 +1,4 @@
 using Microsoft.Xna.Framework;
-using GameEngine.Scene;
-using GameSpecific;
 using System.Collections;
 using GameEngine.Scene.Components;
 

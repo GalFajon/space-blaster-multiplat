@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace GameEngine.Scene.Components;
 public abstract class SceneObject
 {

@@ -32,7 +32,6 @@ public class Room : Position
     public bool LeftDoor, RightDoor, TopDoor, BottomDoor = false;
     readonly public int Rows = 0, Columns = 0;
 
-    // tole lahko razširiš na bolj splošen tile sistem
     readonly public int tileWidth = 16 * 3, tileHeight = 16 * 3;
     public RoomGoals goal = RoomGoals.NONE;
     public bool goalComplete = false;
@@ -173,9 +172,6 @@ public class Room : Position
         {
             EntranceDoor entrance = new EntranceDoor(0, 0, this, this.scene, this);
             addToGrid(Columns / 2, 0, entrance);
-
-            //if (getGrid(Columns / 2 - 1, 0) is Wall w) w.AnimationPlayer.SetCurrentAnimation(10);
-            //if (getGrid(Columns / 2 + 1, 0) is Wall w2) w2.AnimationPlayer.SetCurrentAnimation(9);
         }
         ;
 
@@ -183,9 +179,6 @@ public class Room : Position
         {
             EntranceDoor entrance = new EntranceDoor(0, 0, this, this.scene, this);
             addToGrid(Columns / 2, Rows, entrance);
-
-            //if (getGrid(Columns / 2 - 1, Rows) is Wall w) w.AnimationPlayer.SetCurrentAnimation(10);
-            //if (getGrid(Columns / 2 + 1, Rows) is Wall w2) w2.AnimationPlayer.SetCurrentAnimation(9);
         }
         ;
 
@@ -193,9 +186,6 @@ public class Room : Position
         {
             EntranceDoor entrance = new EntranceDoor(0, 0, this, this.scene, this);
             addToGrid(0, Rows / 2, entrance);
-
-            //if (getGrid(0, Rows / 2 - 1) is Wall w) w.AnimationPlayer.SetCurrentAnimation(8);
-            //if (getGrid(0, Rows / 2 + 1) is Wall w2) w2.AnimationPlayer.SetCurrentAnimation(7);
         }
         ;
     }

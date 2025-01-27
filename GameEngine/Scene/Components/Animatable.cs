@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using GameSpecific;
 using GameEngine.Graphics;
 
 namespace GameEngine.Scene.Components;

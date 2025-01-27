@@ -1,0 +1,11 @@
+{
+    "SFXVolume": 100,
+    "MusicVolume": 100,
+    "CameraZoom": 1,
+    "Currency": 0,
+    "HighScore": 0,
+    "PistolUnlocked": false,
+    "SubMachineGunUnlocked": false,
+    "ShotgunUnlocked": false,
+    "MachineGunUnlocked": false
+}

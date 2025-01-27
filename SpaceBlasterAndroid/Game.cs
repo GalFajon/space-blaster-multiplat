@@ -23,7 +23,9 @@ namespace SpaceBlasterAndroid
                     if (!Directory.Exists(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal)))) 
                         Directory.CreateDirectory(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal)));
 
-                    File.Create(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "/settings.json"));
+                    var s = File.Create(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "/settings.json"));
+                    s.Close();
+
                     Settings.Save();
                 }
 

@@ -40,7 +40,7 @@ namespace GameEngine
             graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
             graphics.SynchronizeWithVerticalRetrace = false;
             graphics.ApplyChanges();
 

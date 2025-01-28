@@ -40,7 +40,7 @@ namespace GameEngine
             graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             graphics.SynchronizeWithVerticalRetrace = false;
             graphics.ApplyChanges();
 
@@ -51,8 +51,8 @@ namespace GameEngine
 
             Components.Add(new InputManager(this, graphics));
             Components.Add(new AIHandler(this));
-            Components.Add(new PhysicsEngine(this, input));
             Components.Add(new CollisionHandler(this));
+            Components.Add(new PhysicsEngine(this, input));
             
             this.Renderer = new GameRenderer(this);
             Components.Add(Renderer);

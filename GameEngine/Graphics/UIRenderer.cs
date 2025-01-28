@@ -29,13 +29,13 @@ public class UIRenderer : DrawableGameComponent
     public static Sprite SmallButtonSprite;
     public static Sprite SmallButtonClickedSprite;
 
+    public static int LabelScale = 1;
+    public static int ButtonScale = 3;
+
     public static int ButtonWidth = 32;
     public static int ButtonHeight = 16;
     public static int ButtonSmallWidth = 16;
     public static int ButtonSmallHeight = 16;
-
-    public static int LabelScale = 1;
-    public static int ButtonScale = 3;
 
     protected override void LoadContent()
     {

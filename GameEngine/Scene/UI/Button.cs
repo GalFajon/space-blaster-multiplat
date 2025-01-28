@@ -19,7 +19,7 @@ public class Button : Position, IInputHandler
             return big;
         }
         set {
-            if (this.Big)
+            if (value)
             {
                 this.rect = new Rectangle(0, 0, UIRenderer.ButtonWidth * UIRenderer.ButtonScale, UIRenderer.ButtonHeight * UIRenderer.ButtonScale);
             }

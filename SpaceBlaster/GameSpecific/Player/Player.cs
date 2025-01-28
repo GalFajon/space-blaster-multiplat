@@ -79,7 +79,7 @@ public class Player : Physics, IAnimatable, IInputHandler
     Vector2 MovePivot = new Vector2(0, 0);
     Vector2 AimPivot = new Vector2(0, 0);
 
-    public Player(WeaponStats primary, WeaponStats secondary, float x, float y, Scene scene, SceneObject parent = null, int color = 3) : base(x, y, new Rectangle(0, 0, 40, 40), true, scene, parent)
+    public Player(WeaponStats primary, WeaponStats secondary, float x, float y, Scene scene, SceneObject parent = null, int color = 3) : base(x, y, new Rectangle(0, 0, 35, 35), true, scene, parent)
     {
         this.primaryWeapon = primary;
         this.secondaryWeapon = secondary;
@@ -102,7 +102,7 @@ public class Player : Physics, IAnimatable, IInputHandler
         this.scene.Spawn(healthBar);
         healthBar.SetState(BarState.HIGH);
 
-        currentWeapon = new Weapon(primaryWeapon, 8 * 3, 8 * 3, this.scene, this);
+        currentWeapon = new Weapon(primaryWeapon, this.Rect.Right / 2, this.Rect.Bottom / 2, this.scene, this);
         this.scene.Spawn(currentWeapon);
 
         if (OperatingSystem.IsAndroid())

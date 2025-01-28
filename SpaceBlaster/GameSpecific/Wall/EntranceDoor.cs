@@ -20,7 +20,7 @@ public class EntranceDoor : Collider, IAnimatable, IArtificialIntelligence
     public AnimationPlayer AnimationPlayer { get; set; }
     private EntranceDoorState current;
     public Room Room;
-    public EntranceDoor(float x, float y, Room Room, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 32, 32), scene, parent)
+    public EntranceDoor(float x, float y, Room Room, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 48, 48), scene, parent)
     {
         this.Room = Room;
 
@@ -50,6 +50,7 @@ public class EntranceDoor : Collider, IAnimatable, IArtificialIntelligence
                 bottom.Y > 0 && bottom.Y < this.Room.Rows
             )
             {
+                this.Rect = new Rectangle(0, 0, 32, 32);
                 this.IsSolid = true;
                 this.AnimationPlayer.SetCurrentAnimation(0);
                 current = EntranceDoorState.CLOSED;

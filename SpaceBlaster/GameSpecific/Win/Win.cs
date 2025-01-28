@@ -11,7 +11,7 @@ namespace GameSpecific;
 public class Win : Collider, IAnimatable
 {
     public AnimationPlayer AnimationPlayer { get; set; }
-    public Win(float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 32, 32), scene, parent)
+    public Win(float x, float y, Scene scene, SceneObject parent = null) : base(x, y, new Rectangle(0, 0, 48*2, 48*2), scene, parent)
     {
         this.AnimationPlayer = new AnimationPlayer(
             new Dictionary<int, AnimatedSprite>(){
@@ -20,7 +20,7 @@ public class Win : Collider, IAnimatable
         );
 
         this.AnimationPlayer.SetCurrentAnimation(0);
-
+        this.IsSolid = false;   
         this.Pos = new Vector2(x, y);
     }
 

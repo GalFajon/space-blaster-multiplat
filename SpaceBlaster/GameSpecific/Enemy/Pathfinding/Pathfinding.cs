@@ -37,10 +37,6 @@ public class Pathfinding {
                     var bottomright = new Vector2(r.Right, r.Bottom);
 
                     if (
-                        LineSegmentsIntersect(soldierPos + new Vector2(room.tileWidth, 0), playerPos + new Vector2(room.tileWidth, 0), topleft, topright) ||
-                        LineSegmentsIntersect(soldierPos + new Vector2(room.tileWidth, 0), playerPos + new Vector2(room.tileWidth, 0), topright, bottomright) ||
-                        LineSegmentsIntersect(soldierPos + new Vector2(room.tileWidth, 0), playerPos + new Vector2(room.tileWidth, 0), bottomleft, bottomright) ||
-                        LineSegmentsIntersect(soldierPos + new Vector2(room.tileWidth, 0), playerPos + new Vector2(room.tileWidth, 0), bottomleft, topleft) ||
                         LineSegmentsIntersect(soldierPos, playerPos, topleft, topright) ||
                         LineSegmentsIntersect(soldierPos, playerPos, topright, bottomright) ||
                         LineSegmentsIntersect(soldierPos, playerPos, bottomleft, bottomright) ||
@@ -61,6 +57,8 @@ public class Pathfinding {
         q.Enqueue(start);
 
         var dir = Vector2.Subtract(end, start);
+        var playerGridPos = room.getTile(playerPos);
+        var playerGridWorldPos = room.ToWorldPos((int)playerGridPos.X, (int)playerGridPos.Y) + new Vector2(room.tileWidth / 2, room.tileHeight / 2);
 
         if (dir.X < 0) dir.X = -1;
         else if (dir.X > 0) dir.X = 1;
@@ -73,7 +71,7 @@ public class Pathfinding {
             Vector2 cur = (Vector2)q.Dequeue();
 
             if (
-                HasPlayerLOS(room.ToWorldPos((int)cur.X, (int)cur.Y), playerPos, room) &&
+                HasPlayerLOS(room.ToWorldPos((int)cur.X, (int)cur.Y) + new Vector2(room.tileWidth / 2, room.tileHeight / 2), playerGridWorldPos, room) &&
                 cur.X + dir.X > 1 && cur.X + dir.X < room.Columns &&
                 cur.Y + dir.Y > 1 && cur.Y + dir.Y < room.Rows
             )
@@ -118,6 +116,9 @@ public class Pathfinding {
 
         q.Enqueue(start);
 
+        var playerGridPos = room.getTile(playerPos);
+        var playerGridWorldPos = room.ToWorldPos((int)playerGridPos.X, (int)playerGridPos.Y) + new Vector2(room.tileWidth / 2, room.tileHeight / 2);
+
         var dir = Vector2.Subtract(end, start);
 
         if (dir.X < 0) dir.X = -1;
@@ -131,8 +132,8 @@ public class Pathfinding {
             Vector2 cur = (Vector2)q.Dequeue();
 
             if (
-                HasPlayerLOS(room.ToWorldPos((int)cur.X, (int)cur.Y), playerPos, room) &&
-                Vector2.Distance(room.ToWorldPos((int)cur.X, (int)cur.Y), playerPos) < distance &&
+                HasPlayerLOS(room.ToWorldPos((int)cur.X, (int)cur.Y) + new Vector2(room.tileWidth / 2, room.tileHeight / 2), playerGridWorldPos, room) &&
+                Vector2.Distance(room.ToWorldPos((int)cur.X, (int)cur.Y), playerGridWorldPos) < distance &&
                 cur.X + dir.X > 1 && cur.X + dir.X < room.Columns &&
                 cur.Y + dir.Y > 1 && cur.Y + dir.Y < room.Rows
             )
@@ -178,6 +179,8 @@ public class Pathfinding {
         q.Enqueue(start);
 
         var dir = Vector2.Subtract(end, start);
+        var playerGridPos = room.getTile(playerPos);
+        var playerGridWorldPos = room.ToWorldPos((int)playerGridPos.X, (int)playerGridPos.Y) + new Vector2(room.tileWidth / 2, room.tileHeight / 2);
 
         if (dir.X < 0) dir.X = -1;
         else if (dir.X > 0) dir.X = 1;
@@ -195,7 +198,7 @@ public class Pathfinding {
                         room.getGrid((int)(cur.X), (int)(cur.Y + dir.Y)) is CoverWall ||
                         room.getGrid((int)(cur.X + dir.X), (int)(cur.Y)) is CoverWall
                     ) &&
-                    HasPlayerLOS(room.ToWorldPos((int)cur.X, (int)cur.Y), playerPos, room)
+                    HasPlayerLOS(room.ToWorldPos((int)cur.X, (int)cur.Y) + new Vector2(room.tileWidth / 2, room.tileHeight / 2), playerGridWorldPos, room)
 
                 ) &&
                 cur.X + dir.X > 1 && cur.X + dir.X < room.Columns &&

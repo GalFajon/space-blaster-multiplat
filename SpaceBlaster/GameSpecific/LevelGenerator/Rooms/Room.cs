@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace GameSpecific.LevelGenerator.Rooms;
 
+using System.Diagnostics;
 using GameEngine.Scene;
 using GameEngine.Scene.Components;
 using Microsoft.Xna.Framework;

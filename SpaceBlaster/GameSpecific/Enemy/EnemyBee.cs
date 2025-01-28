@@ -67,7 +67,7 @@ public class EnemyBee : Enemy, IPathFollower, IAnimatable
                             Path.Push(start);
                         }
 
-                        Path.Push(beePos);
+                        //Path.Push(beePos);
                     }
                 }
 

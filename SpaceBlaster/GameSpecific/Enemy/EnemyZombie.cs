@@ -79,7 +79,7 @@ public class EnemyZombie : Enemy, IPathFollower, IAnimatable
                     else
                     {
                         Vector2 zombPos = Room.getTile(this.Pos);
-                        var goal = Pathfinding.BFSFindPlayerLOSAtDistance(zombPos, playerPos, this.Room, l._player.Pos, 200);
+                        var goal = Pathfinding.BFSFindPlayerLOSAtDistance(zombPos, playerPos, this.Room, l._player.Pos, 150);
                         var path = Pathfinding.BFS(zombPos, goal, Room);
 
                         if (path.Keys.Count > 0)

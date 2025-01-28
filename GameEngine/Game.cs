@@ -11,6 +11,7 @@ using GameEngine.Gameplay.Physics;
 using GameEngine.Gameplay.Collision;
 using GameEngine.Gameplay.Scene;
 using System.Diagnostics;
+using System;
 
 namespace GameEngine
 {
@@ -39,7 +40,7 @@ namespace GameEngine
         {
             graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-
+            
             graphics.IsFullScreen = true;
             graphics.SynchronizeWithVerticalRetrace = false;
             graphics.ApplyChanges();

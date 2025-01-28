@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 namespace GameSpecific;
 
 using System.Collections.Generic;
+using System.Diagnostics;
 using GameEngine.Graphics;
 using GameEngine.Scene.Components;
 using GameSpecific.LevelGenerator.Rooms;
@@ -34,7 +35,7 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
         this.MaxHealth = 3;
         this.currencyValue = 10;
         this.IsSolid = false;
-        weapon = new Weapon(weaponstats, 32, 20, this.scene, this);
+        weapon = new Weapon(weaponstats, 24, 24, this.scene, this);
         this.scene.Spawn(weapon);
 
         this.StunTimer = 150;
@@ -74,7 +75,8 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
 
                 if (this.currentState != EnemySoldierState.MOVING_TO_COVER && this.currentState != EnemySoldierState.SHOOTING)
                 {
-                    if (Pathfinding.IsInCover(soldierPos, playerDir, this.Room) && Pathfinding.HasPlayerLOS(this.Pos, l._player.Pos, this.Room)) this.currentState = EnemySoldierState.IN_COVER;
+                    if (Pathfinding.IsInCover(soldierPos, playerDir, this.Room) && Pathfinding.HasPlayerLOS(this.Pos, l._player.Pos + l._player.Rect.Center.ToVector2(), this.Room)) this.currentState = EnemySoldierState.IN_COVER;
+                    else if (Pathfinding.HasPlayerLOS(this.Pos, l._player.Pos + l._player.Rect.Center.ToVector2(), this.Room)) this.currentState = EnemySoldierState.SHOOTING;
                     else this.currentState = EnemySoldierState.NOT_IN_COVER;
                 }
 

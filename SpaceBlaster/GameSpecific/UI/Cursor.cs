@@ -19,6 +19,8 @@ public class Cursor : Position, IUIAnimatable, IInputHandler
                 { 0, new AnimatedSprite(SpaceBlasterGame.TextureAtlas, new Vector2(88, 69), 1, 0.2, 16, 16, 2, 0f, new Vector2(0, 0)) },
             }
         );
+
+        this.Pos = InputManager.MousePosUI;
     }
 
     public void HandleInput(GameTime gameTime, TouchCollection touch, KeyboardState keyboard, MouseState mouse, Matrix UITransform, Matrix RendererTransform) {

@@ -34,7 +34,6 @@ public class Settings
             {
                 var s = this.getStream(false);
                 var text = new StreamReader(s).ReadToEnd();
-                Debug.WriteLine(text);
                 Settings n = JsonSerializer.Deserialize<Settings>(text);
                 this.SFXVolume = n.SFXVolume;
                 this.MusicVolume = n.MusicVolume;

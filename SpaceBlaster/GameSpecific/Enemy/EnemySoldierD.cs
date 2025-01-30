@@ -75,8 +75,8 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
 
                 if (this.currentState != EnemySoldierState.MOVING_TO_COVER && this.currentState != EnemySoldierState.SHOOTING)
                 {
-                    if (Pathfinding.IsInCover(soldierPos, playerDir, this.Room) && Pathfinding.HasPlayerLOS(this.Pos, l._player.Pos + l._player.Rect.Center.ToVector2(), this.Room)) this.currentState = EnemySoldierState.IN_COVER;
-                    else if (Pathfinding.HasPlayerLOS(this.Pos, l._player.Pos + l._player.Rect.Center.ToVector2(), this.Room)) this.currentState = EnemySoldierState.SHOOTING;
+                    if (Pathfinding.IsInCover(soldierPos, playerDir, this.Room) && Pathfinding.HasPlayerLOS(this.Room.ToWorldPos((int)soldierPos.X, (int)soldierPos.Y) + new Vector2(this.Room.tileWidth / 2, this.Room.tileHeight / 2), l._player.Pos + new Vector2(this.Room.tileWidth / 2, this.Room.tileHeight / 2), this.Room)) this.currentState = EnemySoldierState.IN_COVER;
+                    else if (Pathfinding.HasPlayerLOS(this.Room.ToWorldPos((int)soldierPos.X,(int)soldierPos.Y) + new Vector2(this.Room.tileWidth / 2, this.Room.tileHeight / 2), l._player.Pos + new Vector2(this.Room.tileWidth / 2, this.Room.tileHeight / 2), this.Room)) this.currentState = EnemySoldierState.SHOOTING;
                     else this.currentState = EnemySoldierState.NOT_IN_COVER;
                 }
 

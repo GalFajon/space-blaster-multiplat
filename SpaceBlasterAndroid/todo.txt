@@ -1,0 +1,42 @@
+- android controls:
+	- virtual joysticks
+	- buttons with icons
+	- add double tap for weapon switching
+
+- bug fixes:
+	- implement A*
+	- fix enemy AI (especially bees)
+	- fix intro cutscene positioning and overall ui positioning, make more story cutscenes the player can unlock as they beat many floors, upon beating X amount of floors
+	the final cutscene unlocks, make the cutscenes an actual system so you can implement stuff like class character introductions etc
+
+- expand level design:
+	- room hazard that hurts the player on contact, enemy AI avoids it
+	- rooms should be 1.5 as big as they are now
+	- decorative destructible objects
+	- turrets:
+		- one fires either in a set direction or all four based on a timer
+		- one fires directly towards the player
+	- explosive objects, airlocks that fire a damaging ray in a direction etc.
+	- room tilesets that change based on where you are (maybe just recolours)
+
+- card system:
+	- after each floor player MUST choose a card that gives the player an advantage but also makes some aspect of the game harder:
+		- cards can either:
+			benefits:
+			- boost player or weapon stats, weapon and player stats should have maximum/minimum limits
+			- give the player a skill they can use on a cooldown, only one skill and they overwrite
+			- give the player a new primary/secondary weapon (all weapons are now cards)
+
+			drawbacks:
+			- increase enemy level (increasing their damage and movement speed, every enemy should have a fixed leveling system and stats that max out to avoid being broken)
+			- add new rooms into the selection (rooms can be grouped by new enemy types or a theme)
+			- reducing player stats in some way (e.g. removing max health)
+
+		- the player is awarded card booster packs, they can also buy them, on opening, cards in the booster pack are added to the draw
+		- the player can also choose from a number of premade classes with a starting loadout of weapon cards and a single weapon ability
+			(note: the stats of these classes are determined by the drawbacks of the cards, no need for a player leveling system)
+
+		- a menu is added where the player can view all the cards they have collected
+
+- bosses:
+	- add three boss encounters that appear after five or so floors

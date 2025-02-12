@@ -85,7 +85,10 @@ public class Level : GameEngine.Scene.Scene
         var bg = new LevelBackground(0, 0, this, Camera);
         Components.Add(bg);
 
-        Components.AddRange(LevelGenerator.LevelGenerator.Generate(4, this));
+        int roomCount = 2 + (int)Math.Floor(Math.Log(1 + (double)_game.roomsCleared, 2));
+        if (roomCount > 6) roomCount = 6;
+
+        Components.AddRange(LevelGenerator.LevelGenerator.Generate(roomCount, this));
         Components.Add(_player);
 
         MusicManager.play("gameplay");

@@ -144,6 +144,7 @@ public class SettingsScreen : GameEngine.Scene.Scene
         {
             SpaceBlasterGame.Settings.CameraZoom = v;
             cameraZoomLabel.Text = "Camera zoom: " + float.Round(SpaceBlasterGame.Settings.CameraZoom * 10) / 10;
+            SpaceBlasterGame.Settings.Save();
         }
     }
 
@@ -153,6 +154,7 @@ public class SettingsScreen : GameEngine.Scene.Scene
         musicVolumeLabel.Text = "Music volume: " + MusicManager.getVolume();
 
         SpaceBlasterGame.Settings.MusicVolume = (int)(float.Round(v * 10));
+        SpaceBlasterGame.Settings.Save();
     }
 
     public void setSFXVolume(float v)
@@ -163,6 +165,7 @@ public class SettingsScreen : GameEngine.Scene.Scene
 
 
         SpaceBlasterGame.Settings.SFXVolume = (int)(float.Round(v * 10));
+        SpaceBlasterGame.Settings.Save();
     }
 
     public void ToTitle()

@@ -21,10 +21,21 @@ namespace SpaceBlasterWindows
             Settings.getStream = (writing) => {
                 if (writing)
                 {
-                    File.WriteAllText("./Content/settings.json", "");
-                    return File.OpenWrite("./Content/settings.json");
+                    if (!File.Exists(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "./SpaceBlaster/settings.json")))
+                    {
+                        if (!Directory.Exists(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "./SpaceBlaster/")))
+                            Directory.CreateDirectory(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "./SpaceBlaster/"));
+
+                        var s = File.Create(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "./SpaceBlaster/settings.json"));
+                        s.Close();
+
+                        Settings.Save();
+                    }
+
+                    File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "./SpaceBlaster/settings.json"), "");
+                    return File.OpenWrite(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "./SpaceBlaster/settings.json"));
                 }
-                else return File.OpenRead("./Content/settings.json");
+                else return File.OpenRead(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "./SpaceBlaster/settings.json"));
             };
 
             RoomLayouts.GetStream = (int i) => {

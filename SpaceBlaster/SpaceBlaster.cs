@@ -65,7 +65,7 @@ namespace SpaceBlaster
             SoundEffectsManager.AddSFX("weapon_switch", Content.Load<SoundEffect>("weapon_switch"));
 
             MusicManager.setVolume(Settings.MusicVolume / 10f);
-            SoundEffectsManager.setVolume(Settings.MusicVolume / 10f);
+            SoundEffectsManager.setVolume(Settings.SFXVolume / 10f);
             
             this.IsMouseVisible = false;
 

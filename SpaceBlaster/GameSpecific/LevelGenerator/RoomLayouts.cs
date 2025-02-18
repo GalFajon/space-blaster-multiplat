@@ -23,7 +23,7 @@ public class JSONRoomLayout
 
 public class RoomLayouts
 {
-    public static int maxRoom = 10;
+    public static int maxRoom = 16;
     public static ContentManager Content = null;
     public static Stream stream;
 
@@ -45,6 +45,8 @@ public class RoomLayouts
                 else if (l.Type == "soldier_pistol") objects[new Vector2(l.Coordinates[0], l.Coordinates[1])] = new EnemySoldierD(PremadeWeapons.EnemyPistol, 0, 0, scene, null);
                 else if (l.Type == "soldier_machinegun") objects[new Vector2(l.Coordinates[0], l.Coordinates[1])] = new EnemySoldierD(PremadeWeapons.EnemyMachineGun, 0, 0, scene, null);
                 else if (l.Type == "zombie") objects[new Vector2(l.Coordinates[0], l.Coordinates[1])] = new EnemyZombie(0, 0, scene, null);
+                else if (l.Type == "barrel") objects[new Vector2(l.Coordinates[0], l.Coordinates[1])] = new EnemyExplodingBarrel(0, 0, scene, null);
+                else if (l.Type == "damagewall") objects[new Vector2(l.Coordinates[0], l.Coordinates[1])] = new DamageWall(0, 0, scene);
                 else if (l.Type == "health") objects[new Vector2(l.Coordinates[0], l.Coordinates[1])] = new Health(0, 0, scene, null);
                 else if (l.Type == "currency") objects[new Vector2(l.Coordinates[0], l.Coordinates[1])] = new Currency(10, 0, 0, scene, null);
             }

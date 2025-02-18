@@ -62,7 +62,7 @@ public class EnemyZombie : Enemy, IPathFollower, IAnimatable
                     {
                         SoundEffectsManager.Play(this, "enemy_spots_player");
                         var PlayerDir = Vector2.Normalize(Vector2.Subtract(l._player.Pos, this.Pos));
-                        this.scene.Spawn(new Projectile(1, this.Pos.X + 16, this.Pos.Y + 16, PlayerDir, 300, null));
+                        this.scene.Spawn(new Projectile(0.5f, this.Pos.X + 16, this.Pos.Y + 16, PlayerDir, 300, null));
                         currentTimer = 0;
                     }
 
@@ -93,7 +93,7 @@ public class EnemyZombie : Enemy, IPathFollower, IAnimatable
                                 Path.Push(start);
                             }
 
-                            this.Pos = new Vector2(path[start].X * Room.tileWidth, path[start].Y * Room.tileHeight);
+                            if (path.ContainsKey(start)) this.Pos = new Vector2(path[start].X * Room.tileWidth, path[start].Y * Room.tileHeight);
 
                             Path.Push(zombPos);
                         }

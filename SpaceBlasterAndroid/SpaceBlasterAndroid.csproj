@@ -35,6 +35,11 @@
     <None Remove="Content\player_shoots.wav" />
     <None Remove="Content\room-0.json" />
     <None Remove="Content\room-1.json" />
+    <None Remove="Content\room-10.json" />
+    <None Remove="Content\room-11.json" />
+    <None Remove="Content\room-12.json" />
+    <None Remove="Content\room-13.json" />
+    <None Remove="Content\room-15.json" />
     <None Remove="Content\room-2.json" />
     <None Remove="Content\room-3.json" />
     <None Remove="Content\room-4.json" />
@@ -76,6 +81,11 @@
     <AndroidAsset Include="Content\room-1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidAsset>
+    <AndroidAsset Include="Content\room-10.json" />
+    <AndroidAsset Include="Content\room-11.json" />
+    <AndroidAsset Include="Content\room-12.json" />
+    <AndroidAsset Include="Content\room-13.json" />
+    <AndroidAsset Include="Content\room-15.json" />
     <AndroidAsset Include="Content\room-2.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidAsset>
@@ -103,6 +113,9 @@
     <AndroidAsset Include="Content\ui.png" />
     <AndroidAsset Include="Content\weapon_switch.wav" />
     <AndroidAsset Include="Content\win_collected.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Content\room-14.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.2.1105" />

@@ -89,7 +89,7 @@ public class Pathfinding {
                             if (i == -1 && j == 1) continue;
                             if (i == 1 && j == -1) continue;
 
-                            if (room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not CoverWall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not Wall)
+                            if (room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not CoverWall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not Wall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not DamageWall)
                             {
                                 var vector = new Vector2(cur.X + i, cur.Y + j);
                                 if (!visited.ContainsKey(vector))
@@ -148,7 +148,7 @@ public class Pathfinding {
                             if (i == -1 && j == 1) continue;
                             if (i == 1 && j == -1) continue;
 
-                            if (room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not CoverWall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not Wall)
+                            if (room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not CoverWall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not Wall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not DamageWall)
                             {
                                 var vector = new Vector2(cur.X + i, cur.Y + j);
                                 if (!visited.ContainsKey(vector))
@@ -213,7 +213,7 @@ public class Pathfinding {
                             if (i == -1 && j == 1) continue;
                             if (i == 1 && j == -1) continue;
 
-                            if (room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not CoverWall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not Wall)
+                            if (room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not CoverWall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not Wall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not DamageWall)
                             {
                                 var vector = new Vector2(cur.X + i, cur.Y + j);
                                 if (!visited.ContainsKey(vector))
@@ -256,7 +256,11 @@ public class Pathfinding {
                             if (i == -1 && j == 1) continue;
                             if (i == 1 && j == -1) continue;
 
-                            if (room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not Wall && room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not CoverWall)
+                            if (
+                                room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not Wall && 
+                                room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not CoverWall &&
+                                room.getGrid((int)(cur.X + i), (int)(cur.Y + j)) is not DamageWall
+                            )
                             {
                                 var vector = new Vector2(cur.X + i, cur.Y + j);
                                 if (!visited.ContainsKey(vector))

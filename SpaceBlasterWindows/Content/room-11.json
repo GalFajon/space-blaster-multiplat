@@ -1,0 +1,40 @@
+{
+    "Goal": "kill_enemies",
+    "Objects": [
+        {
+            "Type": "barrel",
+            "Coordinates": [
+                3,
+                3
+            ]
+        },
+        {
+            "Type": "barrel",
+            "Coordinates": [
+                6,
+                6
+            ]
+        },
+        {
+            "Type": "zombie",
+            "Coordinates": [
+                3,
+                7
+            ]
+        },
+        {
+            "Type": "zombie",
+            "Coordinates": [
+                8,
+                9
+            ]
+        },
+        {
+            "Type": "zombie",
+            "Coordinates": [
+                8,
+                3
+            ]
+        }
+    ]
+}

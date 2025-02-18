@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using GameEngine.Gameplay.Input;
 using System;
 using GameEngine.Gameplay.Audio;
+using System.Diagnostics;
 namespace GameSpecific;
 
 public class Player : Physics, IAnimatable, IInputHandler
@@ -22,11 +23,11 @@ public class Player : Physics, IAnimatable, IInputHandler
         get => health;
         set
         {
-            if (value <= MaxHealth && value >= 0) health = value;
+            if (value <= MaxHealth) health = value;
 
             if (health == 3) healthBar.SetState(BarState.HIGH);
-            else if (health == 2) healthBar.SetState(BarState.MEDIUM);
-            else healthBar.SetState(BarState.LOW);
+            else if (health < 2) healthBar.SetState(BarState.LOW);
+            else if (health < 3) healthBar.SetState(BarState.MEDIUM);
 
             if (health <= 0)
             {
@@ -176,14 +177,23 @@ public class Player : Physics, IAnimatable, IInputHandler
 
     public override void HandleCollision(Collider collided)
     {
-        if (collided is Projectile && !this.invincible)
+        if (collided is Projectile p && !this.invincible)
         {
-            this.Health -= 1;
+            this.Health -= p.Damage;
             this.invincible = true;
             this.CurrentTimer = 0;
         }
         else if (collided is PlayerProjectile) return;
         else if (collided is EntranceDoor) this.currentWeapon.CanShoot = false;
+        else if (collided is DamageArea d && d.Parent != this.currentWeapon && !this.invincible && d.active)
+        {
+            SoundEffectsManager.Play(this, "player_hit");
+            this.Health -= d.Damage;
+            Debug.WriteLine(this.Health);
+            Debug.WriteLine(d.Damage);
+            this.invincible = true;
+            this.CurrentTimer = 0;
+        }
     }
 
     public void HandleInput(GameTime gameTime, TouchCollection touchstate, KeyboardState keyboard, MouseState mouse, Matrix renderer, Matrix UI)

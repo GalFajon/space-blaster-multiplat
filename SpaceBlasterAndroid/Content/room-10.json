@@ -1,0 +1,75 @@
+{
+    "Goal": "kill_enemies",
+    "Objects": [
+        {
+            "Type": "zombie",
+            "Coordinates": [
+                2,
+                2
+            ]
+        },
+        {
+            "Type": "zombie",
+            "Coordinates": [
+                9,
+                9
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                4,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                5,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                6,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                7,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                4,
+                6
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                5,
+                6
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                6,
+                6
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                7,
+                6
+            ]
+        }
+    ]
+}

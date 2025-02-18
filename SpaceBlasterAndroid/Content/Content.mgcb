@@ -203,32 +203,105 @@
 #begin room-0.json
 /copy:room-0.json
 
+#begin room-0.json
+/importer:
+/processor:
+/build:room-0.json
+
 #begin room-1.json
 /copy:room-1.json
+
+#begin room-1.json
+/importer:
+/processor:
+/build:room-1.json
+
+#begin room-10.json
+/copy:room-10.json
+
+#begin room-10.json
+/importer:
+/processor:
+/build:room-10.json
+
+#begin room-11.json
+/copy:room-11.json
+
+#begin room-12.json
+/copy:room-12.json
+
+#begin room-13.json
+/copy:room-13.json
+
+#begin room-14.json
+/copy:room-14.json
+
+#begin room-15.json
+/copy:room-15.json
 
 #begin room-2.json
 /copy:room-2.json
 
+#begin room-2.json
+/importer:
+/processor:
+/build:room-2.json
+
 #begin room-3.json
 /copy:room-3.json
+
+#begin room-3.json
+/importer:
+/processor:
+/build:room-3.json
 
 #begin room-4.json
 /copy:room-4.json
 
+#begin room-4.json
+/importer:
+/processor:
+/build:room-4.json
+
 #begin room-5.json
 /copy:room-5.json
+
+#begin room-5.json
+/importer:
+/processor:
+/build:room-5.json
 
 #begin room-6.json
 /copy:room-6.json
 
+#begin room-6.json
+/importer:
+/processor:
+/build:room-6.json
+
 #begin room-7.json
 /copy:room-7.json
+
+#begin room-7.json
+/importer:
+/processor:
+/build:room-7.json
 
 #begin room-8.json
 /copy:room-8.json
 
+#begin room-8.json
+/importer:
+/processor:
+/build:room-8.json
+
 #begin room-9.json
 /copy:room-9.json
+
+#begin room-9.json
+/importer:
+/processor:
+/build:room-9.json
 
 #begin settings.json
 /copy:settings.json

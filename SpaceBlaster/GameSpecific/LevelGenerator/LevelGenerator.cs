@@ -35,7 +35,7 @@ public class LevelGenerator
         {
             Room r;
 
-            if (i == 0) r = new Room(0, 0, 12, 12, new Dictionary<Vector2, Position>() { }, RoomGoals.NONE, scene);
+            if (i == 0) r = new Room(0, 0, 12, 12, new Dictionary<Vector2, Position>() {}, RoomGoals.NONE, scene);
             else if (i == rooms) r = new Room(0, 0, 12, 12, new Dictionary<Vector2, Position>() { { new Vector2(6, 6), new Win(0, 0, scene, null) } }, RoomGoals.NONE, scene);
             else r = getRandomRoom(scene);
 

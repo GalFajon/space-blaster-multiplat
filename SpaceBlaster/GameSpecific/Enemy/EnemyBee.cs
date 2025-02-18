@@ -75,10 +75,10 @@ public class EnemyBee : Enemy, IPathFollower, IAnimatable
                 {
                     SoundEffectsManager.Play(this, "enemybee_fires");
 
-                    this.scene.Spawn(new Projectile(1, this.Pos.X + 16, this.Pos.Y + 16, new Vector2(1, 1), 100, null));
-                    this.scene.Spawn(new Projectile(1, this.Pos.X + 16, this.Pos.Y + 16, new Vector2(-1, 1), 100, null));
-                    this.scene.Spawn(new Projectile(1, this.Pos.X + 16, this.Pos.Y + 16, new Vector2(1, -1), 100, null));
-                    this.scene.Spawn(new Projectile(1, this.Pos.X + 16, this.Pos.Y + 16, new Vector2(-1, -1), 100, null));
+                    this.scene.Spawn(new Projectile(0.5f, this.Pos.X + 16, this.Pos.Y + 16, new Vector2(1, 1), 100, null));
+                    this.scene.Spawn(new Projectile(0.5f, this.Pos.X + 16, this.Pos.Y + 16, new Vector2(-1, 1), 100, null));
+                    this.scene.Spawn(new Projectile(0.5f, this.Pos.X + 16, this.Pos.Y + 16, new Vector2(1, -1), 100, null));
+                    this.scene.Spawn(new Projectile(0.5f, this.Pos.X + 16, this.Pos.Y + 16, new Vector2(-1, -1), 100, null));
                     CurrentTimer = 0;
                 }
 

@@ -1,0 +1,40 @@
+{
+    "Goal": "kill_enemies",
+    "Objects": [
+        {
+            "Type": "wall",
+            "Coordinates": [
+                3,
+                5
+            ]
+        },
+        {
+            "Type": "wall",
+            "Coordinates": [
+                9,
+                5
+            ]
+        },
+        {
+            "Type": "soldier_machinegun",
+            "Coordinates": [
+                4,
+                5
+            ]
+        },
+        {
+            "Type": "soldier_machinegun",
+            "Coordinates": [
+                8,
+                5
+            ]
+        },
+        {
+            "Type": "barrel",
+            "Coordinates": [
+                6,
+                5
+            ]
+        }
+    ]
+}

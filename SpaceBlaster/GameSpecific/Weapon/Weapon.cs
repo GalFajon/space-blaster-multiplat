@@ -51,9 +51,9 @@ public struct PremadeWeapons
     public static WeaponStats FlameThrower = new WeaponStats(3, 0.5f, 0.5f, 100, 500, "Flamethrower", WeaponType.FLAMETHROWER, SpaceBlasterGame.Settings.FlameThrowerUnlocked, 1000);
 
     // enemy weapons
-    public static WeaponStats EnemyShotgun = new WeaponStats(3, 0.25f, 0.3f, 600, 200, "");
+    public static WeaponStats EnemyShotgun = new WeaponStats(3, 0.5f, 0.3f, 600, 200, "");
     public static WeaponStats EnemyMachineGun = new WeaponStats(1, 0.25f, 0.30f, 300, 200, "");
-    public static WeaponStats EnemyPistol = new WeaponStats(1, 0.5f, 0.25f, 700, 300, "");
+    public static WeaponStats EnemyPistol = new WeaponStats(1, 0.5f, 0.5f, 700, 300, "");
 }
 
 public class Weapon : Position, IArtificialIntelligence, IAnimatable

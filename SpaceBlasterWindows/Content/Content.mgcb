@@ -197,6 +197,24 @@
 #begin room-1.json
 /copy:room-1.json
 
+#begin room-10.json
+/copy:room-10.json
+
+#begin room-11.json
+/copy:room-11.json
+
+#begin room-12.json
+/copy:room-12.json
+
+#begin room-13.json
+/copy:room-13.json
+
+#begin room-14.json
+/copy:room-14.json
+
+#begin room-15.json
+/copy:room-15.json
+
 #begin room-2.json
 /copy:room-2.json
 

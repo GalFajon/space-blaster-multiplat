@@ -1,0 +1,83 @@
+{
+    "Goal": "kill_enemies",
+    "Objects": [
+        {
+            "Type": "bee",
+            "Coordinates": [
+                3,
+                3
+            ]
+        },
+        {
+            "Type": "bee",
+            "Coordinates": [
+                8,
+                8
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 4, 4 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 5, 4 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 6, 4 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 7, 4 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 4, 7 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 5, 7 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 6, 7 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 7, 7 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 2, 4 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 2, 5 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 2, 6 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 2, 7 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 9, 4 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 9, 5 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 9, 6 ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [ 9, 7 ]
+        }
+    ]
+}

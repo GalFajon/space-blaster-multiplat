@@ -1,0 +1,208 @@
+﻿{
+    "Goal": "kill_enemies",
+    "Objects": [
+        {
+            "Type": "zombie",
+            "Coordinates": [
+                8,
+                4
+            ]
+        },
+        {
+            "Type": "zombie",
+            "Coordinates": [
+                3,
+                6
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                2,
+                2
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                3,
+                2
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                4,
+                2
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                5,
+                2
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                6,
+                2
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                7,
+                2
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                8,
+                2
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                9,
+                2
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                10,
+                2
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                2,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                3,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                4,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                5,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                6,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                7,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                8,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                9,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                10,
+                5
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                2,
+                8
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                3,
+                8
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                4,
+                8
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                5,
+                8
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                6,
+                8
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                7,
+                8
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                8,
+                8
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                9,
+                8
+            ]
+        },
+        {
+            "Type": "damagewall",
+            "Coordinates": [
+                10,
+                8
+            ]
+        }
+    ]
+}

@@ -17,6 +17,7 @@ public class Enemy : Physics, IArtificialIntelligence, IAnimatable
     protected float MaxHealth = 4;
     protected float health = 4;
     protected int currencyValue = 10;
+    protected bool damagingExplosion = false;
     protected float Health
     {
         get => health;
@@ -31,8 +32,9 @@ public class Enemy : Physics, IArtificialIntelligence, IAnimatable
             if (health <= 0)
             {
                 this.Destroy();
-
-                var e = new Explosion(this.Pos.X - this.Rect.Center.X, this.Pos.Y - this.Rect.Center.Y, this.scene);
+                int s = damagingExplosion ? 12 : 3;
+                var e = new Explosion(this.Pos.X - this.Rect.Center.X * (damagingExplosion ? 4 : 1), this.Pos.Y - this.Rect.Center.Y * (damagingExplosion ? 4 : 1), this.scene, damagingExplosion, s);
+                
                 this.scene.Spawn(e);
 
                 if (this.currencyValue > 0)

@@ -242,7 +242,7 @@ public class Player : Physics, IAnimatable, IInputHandler
             {
                 if (!this.switchWeaponButton.clicked)
                 {
-                    Vector2 UITouchPos = Vector2.Transform(new Vector2(touch.Position.X, touch.Position.Y), Matrix.Invert(renderer));
+                    Vector2 UITouchPos = Vector2.Transform(InputManager.toResolutionScaledCoord(touch.Position), Matrix.Invert(renderer));
 
                     if (UITouchPos.X < SpaceBlasterGame.VirtualResolutionWidth / 2)
                     {

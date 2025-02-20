@@ -26,24 +26,52 @@ namespace GameEngine
         public UIRenderer RendererUI = null;
 
         private GraphicsDeviceManager graphics;
+        private RenderTarget2D _renderTarget;
+        private SpriteBatch _spriteBatch;
+        public static Rectangle targetRect;
 
         public GameBase()
         {
             graphics = new GraphicsDeviceManager(this);
 
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
-            IsFixedTimeStep = false;
+            IsMouseVisible = false;
+            IsFixedTimeStep = true;
+        }
+
+        private Rectangle CalculateTargetRect()
+        {
+            Point size = GraphicsDevice.Viewport.Bounds.Size;
+            float scaleX = (float)size.X / (float)VirtualResolutionWidth;
+            float scaleY = (float)size.Y / (float)VirtualResolutionHeight;
+            float scale = Math.Min(scaleX,scaleY);
+
+            Rectangle r = new Rectangle(
+                (int)(size.X / 2 - VirtualResolutionWidth * scale /  2),
+                (int)(size.Y / 2 - VirtualResolutionHeight * scale / 2),
+                (int)((float)VirtualResolutionWidth * scale),
+                (int)((float)VirtualResolutionHeight * scale)
+            );
+
+            return r;
         }
 
         protected override void Initialize()
         {
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            Window.AllowAltF4 = true;
+
             graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-            
+
+            graphics.HardwareModeSwitch = false;
             graphics.IsFullScreen = true;
-            graphics.SynchronizeWithVerticalRetrace = false;
+            graphics.SynchronizeWithVerticalRetrace = true;
             graphics.ApplyChanges();
+
+            _renderTarget = new RenderTarget2D(GraphicsDevice, VirtualResolutionWidth, VirtualResolutionHeight);
+            targetRect = CalculateTargetRect();
 
             SoundEffectsManager.Initialize(this);
             MusicManager.Initialize(this);
@@ -55,10 +83,10 @@ namespace GameEngine
             Components.Add(new CollisionHandler(this));
             Components.Add(new PhysicsEngine(this, input));
             
-            this.Renderer = new GameRenderer(this);
+            this.Renderer = new GameRenderer(this, _spriteBatch);
             Components.Add(Renderer);
 
-            RendererUI = new UIRenderer(this, input);
+            RendererUI = new UIRenderer(this, input, _spriteBatch);
             Components.Add(RendererUI);
 
             Components.Add(new SceneHandler(this));
@@ -79,7 +107,15 @@ namespace GameEngine
 
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.SetRenderTarget(_renderTarget);
+
             base.Draw(gameTime);
+
+            GraphicsDevice.SetRenderTarget(null);
+
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            _spriteBatch.Draw(_renderTarget, targetRect, Color.White);
+            _spriteBatch.End();
         }
 
         public void Quit()

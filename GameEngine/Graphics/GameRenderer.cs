@@ -2,29 +2,38 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GameEngine.Scene.Components;
 using SpaceBlaster;
+using System;
+using System.Diagnostics;
 
 namespace GameEngine.Graphics;
 
 public class GameRenderer : DrawableGameComponent
 {
-
     private SpriteBatch _spriteBatch;
     private GameBase _game;
 
-    public GameRenderer(GameBase game) : base(game)
+    public GameRenderer(GameBase game, SpriteBatch spriteBatch) : base(game)
     {
         _game = game;
+        _spriteBatch = spriteBatch;
     }
 
     protected override void LoadContent()
     {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
     }
 
     public bool IsOnScreen(Vector2 pos, float width = 0, float height = 0)
     {
-        var e1 = Vector2.Transform(new Vector2(0, 0), Matrix.Invert(GetRendererTransformationMatrix()));
-        var e4 = new Vector2(_game.CurrentScene.Camera.Pos.X + GameBase.VirtualResolutionWidth / SpaceBlasterGame.Settings.CameraZoom, _game.CurrentScene.Camera.Pos.Y + GameBase.VirtualResolutionHeight / SpaceBlasterGame.Settings.CameraZoom);
+        var e1 = Vector2.Transform(new Vector2(
+            0,
+            0
+        ), Matrix.Invert(GetRendererTransformationMatrix()));
+
+        var e4 = Vector2.Transform(new Vector2(
+            GameBase.VirtualResolutionWidth,
+            GameBase.VirtualResolutionHeight
+        ), Matrix.Invert(GetRendererTransformationMatrix()));
+
         return
             pos.X + width > e1.X &&
             pos.X - width < e4.X &&
@@ -33,7 +42,7 @@ public class GameRenderer : DrawableGameComponent
     }
 
     public Matrix GetRendererTransformationMatrix()
-    {
+     {
         Matrix t = Matrix.CreateTranslation(
             new Vector3(
                 -_game.CurrentScene.Camera.Pos.X,

@@ -18,10 +18,11 @@ public class UIRenderer : DrawableGameComponent
     private GameBase _game;
     private SpriteFont _font = null;
 
-    public UIRenderer(GameBase game, InputManager input) : base(game)
+    public UIRenderer(GameBase game, InputManager input, SpriteBatch spriteBatch) : base(game)
     {
         _game = game;
         _font = Game.Content.Load<SpriteFont>("File");
+        _spriteBatch = spriteBatch;
     }
 
     public static Sprite ButtonSprite;
@@ -49,8 +50,15 @@ public class UIRenderer : DrawableGameComponent
 
     public Matrix GetUIRendererTransformationMatrix()
     {
-        Matrix t = Matrix.CreateRotationZ(_game.CurrentScene.Camera.Rot) *
-            Matrix.CreateScale(new Vector3(((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / (float)GameBase.VirtualResolutionWidth), ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (float)GameBase.VirtualResolutionHeight), 1.0f));
+        Matrix t = Matrix.CreateTranslation(
+                new Vector3(
+                    0,
+                    0,
+                    0
+                )
+            ) *
+            Matrix.CreateRotationZ(_game.CurrentScene.Camera.Rot) *
+            Matrix.CreateScale(new Vector3(1, 1, 1.0f));
 
         return t;
     }

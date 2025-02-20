@@ -82,7 +82,7 @@ public class Button : Position, IInputHandler
             {
                 var r = this.rect;
                 r.Offset(this.Pos.X, this.Pos.Y);
-                Vector2 UITouchPos = Vector2.Transform(new Vector2(touch.Position.X, touch.Position.Y), Matrix.Invert(UITransform));
+                Vector2 UITouchPos = Vector2.Transform(InputManager.toResolutionScaledCoord(touch.Position), Matrix.Invert(UITransform));
 
                 if (touch.State == TouchLocationState.Pressed)
                 {

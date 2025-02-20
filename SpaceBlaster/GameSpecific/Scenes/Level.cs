@@ -7,6 +7,7 @@ using System.Diagnostics;
 using GameEngine.Gameplay.Audio;
 using GameEngine.Scene.Components;
 using GameEngine.Scene.UI;
+using Microsoft.Xna.Framework.Graphics;
 using SpaceBlaster;
 
 public class Level : GameEngine.Scene.Scene
@@ -52,7 +53,7 @@ public class Level : GameEngine.Scene.Scene
             this.Spawn(c);
         }
 
-        UIPanel uiPanel = new UIPanel(0,0, this);
+        UIPanel uiPanel = new UIPanel(0, 0, this);
         this.Spawn(uiPanel);
 
         roomLabel = new Label(20, 20, "Rooms cleared: " + _game.roomsCleared.ToString(), Color.White, this, null);

@@ -30,14 +30,14 @@
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 6,
                 5
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 7,
                 5
@@ -58,14 +58,14 @@
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 6,
                 6
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 7,
                 6

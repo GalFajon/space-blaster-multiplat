@@ -69,7 +69,7 @@ public class Enemy : Physics, IArtificialIntelligence, IAnimatable
                 this.IsHit = true;
                 this.CurStunTimer = 0;
             }
-            else if (collided is DamageArea d && d.active)
+            else if (collided is DamageArea d && d.active && d.Parent is not DamageWall)
             {
                 this.Health -= d.Damage;
                 this.IsHit = true;

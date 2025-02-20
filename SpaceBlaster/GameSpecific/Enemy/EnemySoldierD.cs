@@ -163,7 +163,7 @@ public class EnemySoldierD : Enemy, IPathFollower, IAnimatable
                 this.CurStunTimer = 0;
             }
 
-            if (collided is DamageArea d && d.active)
+            if (collided is DamageArea d && d.active && d.Parent is not DamageWall)
             {
                 this.Health -= d.Damage;
                 this.IsHit = true;

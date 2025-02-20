@@ -5,14 +5,14 @@
             "Type": "zombie",
             "Coordinates": [
                 8,
-                4
+                3
             ]
         },
         {
             "Type": "zombie",
             "Coordinates": [
                 3,
-                6
+                7
             ]
         },
         {
@@ -30,35 +30,35 @@
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 4,
                 2
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 5,
                 2
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 6,
                 2
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 7,
                 2
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 8,
                 2
@@ -86,42 +86,42 @@
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 3,
                 5
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 4,
                 5
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 5,
                 5
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 6,
                 5
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 7,
                 5
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 8,
                 5
@@ -156,35 +156,35 @@
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 4,
                 8
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 5,
                 8
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 6,
                 8
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 7,
                 8
             ]
         },
         {
-            "Type": "damagewall",
+            "Type": "wall",
             "Coordinates": [
                 8,
                 8

@@ -17,7 +17,7 @@ public class Camera : Position
         }
         set
         {
-            scaleX = (((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width) / (float)GameBase.VirtualResolutionWidth) * value;
+            scaleX = value;
         }
     }
     public float ScaleY
@@ -28,7 +28,7 @@ public class Camera : Position
         }
         set
         {
-            scaleY = ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / (float)GameBase.VirtualResolutionHeight) * value;
+            scaleY = value;
         }
     }
 

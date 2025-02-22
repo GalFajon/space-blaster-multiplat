@@ -24,7 +24,7 @@ public class DamageWall : Position, IAnimatable
 
         this.AnimationPlayer.SetCurrentAnimation(0);
  
-        damageArea = new DamageArea(0, 0, 16 * 3, 16 * 3, this.scene, this, true);
+        damageArea = new DamageArea(0, 0, 16, 16, this.scene, this, true);
         damageArea.Damage = 1;
         this.scene.Spawn(damageArea);
     }
